@@ -55,6 +55,10 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym  --release XF86MonBrightnessUp exec brightnessctl s +5%
 bindsym  --release XF86MonBrightnessDown exec brightnessctl s 5%-
 
+# screenshots
+bindsym Print exec "maim | xclip -selection clipboard -t image/png"
+bindsym $mod+Shift+s exec "maim -s | xclip -selection clipboard -t image/png"
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
