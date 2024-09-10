@@ -19,9 +19,10 @@ exec xinput --set-prop 9 'libinput Accel Speed' -1
 
 # language switch
 exec_always "setxkbmap -model pc105 -layout us,ru -variant ,, -option grp:win_space_toggle"
+exec_always "setxkbmap 'us,ru' -option grp:toggle"
 
 # i3 gaps
-gaps inner 10
+# gaps inner 10
 
 # polybar
 exec_always ~/.config/polybar/launch.sh
