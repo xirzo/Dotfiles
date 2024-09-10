@@ -59,7 +59,7 @@ bindsym  --release XF86MonBrightnessDown exec brightnessctl s 5%-
 floating_modifier $mod
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec --no-startup-id j4-dmenu-desktop
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
