@@ -6,3 +6,5 @@
 - oh-my-posh
 - FiraCode Nerd Font
 - kitty
+- xclip
+- maim
