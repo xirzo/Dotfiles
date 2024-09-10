@@ -1,5 +1,5 @@
 ## Dependencies
-- [fixed dmenu](https://github.com/enkore/j4-dmenu-desktop
+- [fixed dmenu](https://github.com/enkore/j4-dmenu-desktop)
 - feh
 - polybar
 - i3wm
