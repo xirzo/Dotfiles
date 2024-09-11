@@ -18,8 +18,9 @@ font pango:Meslo Nerd Font 12
 exec xinput --set-prop 9 'libinput Accel Speed' -1
 
 # language switch
-exec_always "setxkbmap -model pc105 -layout us,ru -variant ,, -option grp:win_space_toggle"
-exec_always "setxkbmap 'us,ru' -option grp:toggle"
+#exec_always "setxkbmap -model pc105 -layout us,ru -variant ,, -option grp:win_space_toggle"
+
+exec_always "setxkbmap 'us,ru' -option grp:toggle, grp:win_space_toggle"
 
 # i3 gaps
 # gaps inner 10
