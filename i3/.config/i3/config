@@ -21,9 +21,7 @@ exec_always --no-startup-id "xrandr --output DP-0 --primary --mode 1920x1080 ---
 #exec_always --no-startup-id "xrandr --output DP-0 --primary --mode 1920x1080 ---pos 0x1920 -rate 240 --output HDMI-0 --pos 0x0 --mode 2560x1440 --rotate left --left-of DP-0"
 
 # language switch
-#exec_always "setxkbmap -model pc105 -layout us,ru -variant ,, -option grp:win_space_toggle"
-
-exec_always "setxkbmap 'us,ru' -option grp:toggle, grp:win_space_toggle"
+exec_always "setxkbmap -layout 'us,ru' -option 'grp:toggle, grp:win_space_toggle'"
 
 # i3 gaps
 # gaps inner 10
