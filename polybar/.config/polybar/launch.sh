@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
 
-# Terminate already running bar instances
 killall -q polybar
 
-# Launch bar1 and bar2
-echo "---" | tee -a /tmp/polybar1.log /tmp/polybar2.log
+while pgrep -x polybar >/dev/null; do
+  sleep 0.1
+done
 
-#polybar example  >>/tmp/polybar1.log 2>&1 &
-polybar top -r >>/tmp/polybar1.log 2>&1 & disown
+echo "---" | tee -a /tmp/polybar.log
 
-echo "Bars launched..."
+for monitor in $(xrandr --query | grep " connected" | awk '{print $1}'); do
+  echo "Launching polybar on monitor: $monitor" | tee -a /tmp/polybar.log
+  MONITOR=$monitor polybar top -r >>/tmp/polybar.log 2>&1 &
+  disown
+done
 
+echo "Polybar launched on all monitors."
