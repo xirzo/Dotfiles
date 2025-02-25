@@ -15,10 +15,10 @@ set $mod Mod4
 # is used in the bar {} block below.
 font pango:Meslo Nerd Font 12
 
-exec xinput --set-prop 11 'libinput Accel Speed' -0.4
+exec --no-startup-id ~/.config/i3/set_mouses_accel.sh
 
-exec_always --no-startup-id "xrandr --output DP-0 --primary --mode 1920x1080 ---pos 0x1920 -rate 240 --output HDMI-0 --pos 0x0 --mode 2560x1440 --rotate left"
-#exec_always --no-startup-id "xrandr --output DP-0 --primary --mode 1920x1080 ---pos 0x1920 -rate 240 --output HDMI-0 --pos 0x0 --mode 2560x1440 --rotate left --left-of DP-0"
+# exec_always --no-startup-id "xrandr --output DP-0 --primary --mode 1920x1080 ---pos 0x1920 -rate 240 --output HDMI-0 --pos 0x0 --mode 2560x1440 --rotate left"
+exec_always --no-startup-id "xrandr --output DP-0 --primary --mode 1920x1080 ---pos 0x1920 -rate 240 --output HDMI-0 --pos 0x0 --mode 2560x1440 --rotate left --left-of DP-0"
 
 # language switch
 exec_always "setxkbmap -layout 'us,ru' -option 'grp:rshift_toggle, grp:win_space_toggle'"
@@ -81,7 +81,11 @@ bindsym $mod+d exec --no-startup-id j4-dmenu-desktop
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec kitty
+# bindsym $mod+Return exec kitty
+bindsym $mod+Return exec ghostty
+
+# start browser
+bindsym $mod+Shift+n exec qutebrowser
 
 # kill focused window
 bindsym $mod+q kill
