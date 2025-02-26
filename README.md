@@ -6,6 +6,11 @@
 
 Welcome to my personal dotfiles repository! This repository contains configuration files and scripts to set up my preferred development environment.
 
+## Current state
+
+![image](https://github.com/user-attachments/assets/65fbd75b-7421-4636-a7ea-9fac8007c357)
+
+
 ## Dependencies
 
 - 📜 [fixed dmenu](https://github.com/enkore/j4-dmenu-desktop)
