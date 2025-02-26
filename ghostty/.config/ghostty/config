@@ -5,6 +5,10 @@ font-size=22
 font-family=Iosevka Nerd Font
 font-thicken=true
 
+window-theme=dark
+window-padding-x=10
+window-padding-y=10
+
 keybind = ctrl+shift+page_up=scroll_page_up
 keybind = ctrl+shift+page_down=scroll_page_down
 
@@ -31,3 +35,5 @@ foreground = #e4e4e4
 cursor-color = #FFDD33
 selection-background = #F5F5F5
 selection-foreground = #181818
+
+
