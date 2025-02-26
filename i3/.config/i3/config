@@ -30,7 +30,7 @@ exec_always "setxkbmap -layout 'us,ru' -option 'grp:rshift_toggle, grp:win_space
 exec_always ~/.config/polybar/launch.sh
 
 # feh
-exec_always --no-startup-id feh --bg-scale ~/.dotfiles/wallpapers/windows-error-dark.jpg
+exec_always --no-startup-id feh --bg-scale ~/.dotfiles/wallpapers/windows-error-gruber.jpg
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -185,10 +185,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
+        # Pressing left will shrink the window's width.
+        # Pressing right will grow the window's width.
+        # Pressing up will shrink the window's height.
+        # Pressing down will grow the window's height.
         bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
@@ -220,38 +220,25 @@ default_border pixel 4
 default_floating_border pixel 0
 for_window [class="^.*"] border pixel 4
 
-set $rosewater #f5e0dc
-set $flamingo #f2cdcd
-set $pink #f5c2e7
-set $mauve #cba6f7
-set $red #f38ba8
-set $maroon #eba0ac
-set $peach #fab387
-set $yellow #f9e2af
-set $green #a6e3a1
-set $teal #94e2d5
-set $sky #89dceb
-set $sapphire #74c7ec
-set $blue #89b4fa
-set $lavender #b4befe
-set $text #cdd6f4
-set $subtext1 #bac2de
-set $subtext0 #a6adc8
-set $overlay2 #9399b2
-set $overlay1 #7f849c
-set $overlay0 #6c7086
-set $surface2 #585b70
-set $surface1 #45475a
-set $surface0 #313244
-set $base #1e1e2e
-set $mantle #181825
-set $crust #11111b
+# Gruber-darker color scheme
+set $background #181818
+set $black      #101010
+set $black-alt  #453D41
+set $red        #F43841
+set $green      #73D936
+set $yellow     #FFDD33
+set $blue       #96A6C8
+set $magenta    #9E95C7
+set $cyan       #95A99F
+set $white      #E4E4E4
+set $white-alt  #FFFFFF
+set $dark-alt   #282828
+set $dark-green #213421
 
-client.focused           $lavender $base $text  $rosewater $base
-client.focused_inactive  $overlay0 $base $text  $rosewater $mantle
-client.unfocused         $overlay0 $base $text  $rosewater $crust
-client.urgent            $peach    $base $peach $overlay0  $peach
-client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
-client.background        $base
-
-
+# class                 border      backgr.     text        indicator   child_border
+client.focused          $dark-green $background $yellow     $red        $dark-green
+client.focused_inactive $black-alt  $background $white      $black      $black-alt
+client.unfocused        $black      $background $white      $black      $black
+client.urgent           $red        $background $red        $red        $red
+client.placeholder      $black-alt  $background $white      $black-alt  $black-alt
+client.background       $background
