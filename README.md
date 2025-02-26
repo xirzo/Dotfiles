@@ -1,4 +1,4 @@
-# CatppuccinI3Dotfiles
+# Dotfiles
 
 🎨 My setup dotfiles
 
