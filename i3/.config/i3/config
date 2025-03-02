@@ -220,6 +220,8 @@ default_border pixel 4
 default_floating_border pixel 0
 for_window [class="^.*"] border pixel 4
 
+bindsym Control+Return nop
+
 # Gruber-darker color scheme
 set $background #181818
 set $black      #101010
