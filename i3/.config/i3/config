@@ -61,6 +61,10 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+q kill
 
+# language switch
+exec_always "setxkbmap -layout 'us,ru' -option 'grp:rshift_toggle, grp:win_space_toggle'"
+
+
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
