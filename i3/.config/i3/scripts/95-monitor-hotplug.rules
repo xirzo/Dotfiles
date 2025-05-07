@@ -1,0 +1,1 @@
+ACTION=="change", SUBSYSTEM=="drm", RUN+="/bin/bash -c 'export DISPLAY=:0; export XAUTHORITY=/home/alex/.Xauthority; /home/alex/.config/i3/scripts/monitor-hotplug.sh'"
