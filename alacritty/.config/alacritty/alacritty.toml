@@ -1,3 +1,8 @@
+[general]
+import = [
+    "~/.config/alacritty/themes/themes/gruber_darker.toml"
+]
+
 [window]
 padding.x = 10
 padding.y = 10
