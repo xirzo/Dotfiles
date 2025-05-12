@@ -10,19 +10,23 @@ Welcome to my personal dotfiles repository! This repository contains configurati
 
 ![image](https://github.com/user-attachments/assets/65fbd75b-7421-4636-a7ea-9fac8007c357)
 
-
 ## Dependencies
 
-- 📜 [fixed dmenu](https://github.com/enkore/j4-dmenu-desktop)
-- 🖼️ feh
-- 🎛️ polybar
-- 🖥️ i3wm
-- 💻 oh-my-posh
 - 🔤 Iosevka Nerd Font
-- 📋 xclip
-- 📸 maim
-- 👻 ghostty
-- 🐱 ~kitty~
+- hyprland
+- hyprpaper
+- playerctl
+- wofi
+- vivaldi
+- dolphin
+- alacritty
+- swaync
+- pipewire
+- wireplumber
+- qt5-wayland
+- qt6-wayland
+- xdg-desktop-portal-hyprland
+- hyprpolkitagent
 
 ## Installation
 
