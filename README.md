@@ -18,6 +18,7 @@ Welcome to my personal dotfiles repository! This repository contains configurati
 - playerctl
 - wofi
 - vivaldi
+- wl-clipboard
 - dolphin
 - alacritty
 - swaync
