@@ -19,6 +19,7 @@ Welcome to my personal dotfiles repository! This repository contains configurati
 - wofi
 - vivaldi
 - wl-clipboard
+- eww
 - dolphin
 - alacritty
 - swaync
