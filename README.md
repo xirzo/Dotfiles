@@ -23,6 +23,8 @@ Welcome to my personal dotfiles repository! This repository contains configurati
 - gwenview
 - dolphin
 - pywal
+- hyprshot
+- hyprpicker
 - alacritty
 - swaync
 - pipewire
