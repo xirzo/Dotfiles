@@ -20,7 +20,9 @@ Welcome to my personal dotfiles repository! This repository contains configurati
 - vivaldi
 - wl-clipboard
 - eww
+- gwenview
 - dolphin
+- pywal
 - alacritty
 - swaync
 - pipewire
