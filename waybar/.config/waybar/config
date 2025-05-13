@@ -7,7 +7,6 @@
         "modules-center": ["hyprland/workspaces"],
         "modules-right": ["group/expand","bluetooth","network","battery"],
 
-
         "clock": {
             "format": "{:%I:%M:%S %p} ",
             "interval": 1,   
