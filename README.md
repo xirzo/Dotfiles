@@ -26,6 +26,8 @@ Welcome to my personal dotfiles repository! This repository contains configurati
 - hyprshot
 - hyprpicker
 - alacritty
+- hyprlock
+- hypridle
 - swaync
 - pipewire
 - wireplumber
