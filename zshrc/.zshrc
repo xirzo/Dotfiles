@@ -24,7 +24,8 @@ export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 export CC=/usr/bin/clang
 export CXX=/usr/bin/clang++
-export MANPAGER="nvim +Man!"
+# export MANPAGER="nvim +Man!"
+export MANPAGER="less"
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
