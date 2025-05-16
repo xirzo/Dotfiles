@@ -2,13 +2,24 @@
     "layer": "top",
     "position": "top",
     "reload_style_on_change": true,
-    "modules-left": ["custom/notification","clock","custom/pacman","tray"],
-    "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["group/expand","bluetooth","network","battery"],
-
+    "modules-left": [
+        "custom/notification",
+        "clock",
+        "custom/pacman",
+        "tray"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "group/expand",
+        "bluetooth",
+        "network",
+        "battery"
+    ],
     "clock": {
         "format": "{:%I:%M:%S %p} ",
-        "interval": 1,   
+        "interval": 1,
         "tooltip-format": "<tt>{calendar}</tt>",
         "calendar": {
             "format": {
@@ -22,12 +33,12 @@
     },
     "network": {
         "format-wifi": "",
-        "format-ethernet":"",
+        "format-ethernet": "",
         "format-disconnected": "",
         "tooltip-format-disconnected": "Error",
         "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
         "tooltip-format-ethernet": "{ifname} 🖧 ",
-        "on-click": "kitty nmtui"
+        "on-click": "alacritty --command bash -l -c \"nmtui\""
     },
     "bluetooth": {
         "format-on": "󰂯",
@@ -40,9 +51,9 @@
         "tooltip-format-enumerate-connected": "{device_alias}\n{device_address}",
         "tooltip-format-enumerate-connected-battery": "{device_alias}\n{device_address}\n{device_battery_percentage}%",
         "on-click-right": "blueman-manager",
-    }, 
+    },
     "battery": {
-        "interval":30,
+        "interval": 30,
         "states": {
             "good": 95,
             "warning": 30,
@@ -54,11 +65,11 @@
         "format-alt": "{time} {icon}",
         "format-icons": [
             "󰁻",
-        "󰁼",
-        "󰁾",
-        "󰂀",
-        "󰂂",
-        "󰁹"
+            "󰁼",
+            "󰁾",
+            "󰂀",
+            "󰂂",
+            "󰁹"
         ],
     },
     // "custom/pacman": {
@@ -74,7 +85,7 @@
         "format": "",
         "tooltip": false
     },
-    "custom/endpoint":{
+    "custom/endpoint": {
         "format": "|",
         "tooltip": false
     },
@@ -110,4 +121,4 @@
         "icon-size": 14,
         "spacing": 10
     },
-} 
+}
