@@ -2,7 +2,9 @@
 
 * {
     font-size:15px;
-    font-family: "CodeNewRoman Nerd Font Propo";
+    font-family: "JetBrainsMono NFP Medium";
+    /* font-family: "SF Pro Propo"; */
+    /* font-family: "CodeNewRoman Nerd Font Propo"; */
 }
 window#waybar{
     all:unset;
