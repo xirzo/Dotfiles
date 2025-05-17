@@ -8,7 +8,8 @@ Welcome to my personal dotfiles repository! This repository contains configurati
 
 ## Current state
 
-![image](https://github.com/user-attachments/assets/65fbd75b-7421-4636-a7ea-9fac8007c357)
+![image](https://github.com/user-attachments/assets/49448f49-5c2f-4b91-869e-e67030d22d48)
+
 
 ## Dependencies
 
