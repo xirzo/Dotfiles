@@ -14,6 +14,7 @@
     "modules-right": [
         "group/expand",
         "bluetooth",
+        "pulseaudio",
         "network",
         "battery"
     ],
@@ -96,7 +97,13 @@
             "transition-to-left": true,
             "click-to-reveal": true
         },
-        "modules": ["custom/expand", "custom/colorpicker","cpu","memory","temperature"],
+        "modules": [
+            "custom/expand",
+            "custom/colorpicker",
+            "cpu",
+            "memory",
+            "temperature"
+        ],
     },
     "custom/colorpicker": {
         "format": "{}",
@@ -115,10 +122,19 @@
     },
     "temperature": {
         "critical-threshold": 80,
-        "format": "",
+        "format": ""
     },
     "tray": {
         "icon-size": 14,
         "spacing": 10
     },
+    "pulseaudio": {
+        "scroll-step": 5,
+        "max-volume": 150,
+        "format": "{volume}%",
+        "format-bluetooth": "{volume}%",
+        "nospacing": 1,
+        "on-click": "pavucontrol",
+        "tooltip": false
+    }
 }
