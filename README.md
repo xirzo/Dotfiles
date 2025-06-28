@@ -8,21 +8,33 @@ Welcome to my personal dotfiles repository! This repository contains configurati
 
 ## Current state
 
-![image](https://github.com/user-attachments/assets/65fbd75b-7421-4636-a7ea-9fac8007c357)
-
+![image](https://github.com/user-attachments/assets/49448f49-5c2f-4b91-869e-e67030d22d48)
 
 ## Dependencies
 
-- 📜 [fixed dmenu](https://github.com/enkore/j4-dmenu-desktop)
-- 🖼️ feh
-- 🎛️ polybar
-- 🖥️ i3wm
-- 💻 oh-my-posh
-- 🔤 Iosevka Nerd Font
-- 📋 xclip
-- 📸 maim
-- 👻 ghostty
-- 🐱 ~kitty~
+- Iosevka Nerd Font
+- hyprland
+- hyprpaper
+- playerctl
+- wofi
+- vivaldi
+- wl-clipboard
+- eww
+- gwenview
+- dolphin
+- pywal
+- hyprshot
+- hyprpicker
+- alacritty
+- hyprlock
+- hypridle
+- swaync
+- pipewire
+- wireplumber
+- qt5-wayland
+- qt6-wayland
+- xdg-desktop-portal-hyprland
+- hyprpolkitagent
 
 ## Installation
 
@@ -31,17 +43,15 @@ To get started with this setup, follow these steps:
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/xirzo/CatppuccinI3Dotfiles.git
-   cd CatppuccinI3Dotfiles
+   git clone https://github.com/xirzo/Dotfiles
+   cd Dotfiles
    ```
 
 2. Install the dependencies listed above using your package manager.
 3. Symlink the configuration files to their respective locations. For example:
 
    ```sh
-   stow CatppuccinI3Dotfiles/i3
-   stow CatppuccinI3Dotfiles/polybar
-   stow CatppuccinI3Dotfiles/ghostty
+   stow Dotfiles/hypr
    ```
 
 4. Restart your window manager or reboot your system to apply the changes.
@@ -51,6 +61,6 @@ To get started with this setup, follow these steps:
 Once the installation is complete, you can start using the customized environment. Here are most needed keybindings:
 
 - `Mod + Enter`: Open a new terminal.
-- `Mod + D`: Launch dmenu for application selection.
+- `Mod + D`: For application selection.
 - `Mod + Shift + Q`: Close the focused window.
 - `Mod + [1-9]`: Switch to the corresponding workspace.

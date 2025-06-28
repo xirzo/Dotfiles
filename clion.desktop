@@ -1,7 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Application
-Terminal=false
-Exec=env CLION_VM_OPTIONS=/opt/jetbra/vmoptions/clion.vmoptions /opt/clion-2024.2.1/bin/clion
-Name=CLion
-Icon=/opt/clion-2024.2.1/bin/clion.png
