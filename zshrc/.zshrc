@@ -22,6 +22,7 @@ bindkey "^[[1;5C" forward-word
 
 export GOPATH=$HOME/go  
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+export PATH="$PATH:$HOME/.dotnet/tools"
 export CC=/usr/bin/clang
 export CXX=/usr/bin/clang++
 # export MANPAGER="nvim +Man!"
@@ -36,3 +37,4 @@ source $ZSH/oh-my-zsh.sh
 
 (cat ~/.cache/wal/sequences &)
 source ~/.cache/wal/colors-tty.sh
+
