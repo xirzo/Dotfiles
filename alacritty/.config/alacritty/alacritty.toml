@@ -9,14 +9,19 @@ decorations = "Full"
 decorations_theme_variant = "Dark"
 
 [font]
+normal.family = "JetBrainsMono Nerd Font Propo"
+bold.family = "JetBrainsMono Nerd Font Propo"
+italic.family = "JetBrainsMono Nerd Font Propo"
+bold_italic.family = "JetBrainsMono Nerd Font Propo"
+
 # normal.family = "Iosevka Nerd Font"
 # bold.family = "Iosevka Nerd Font"
 # italic.family = "Iosevka Nerd Font"
 # bold_italic.family = "Iosevka Nerd Font"
 
-normal.family = "Terminess Nerd Font"
-bold.family = "Terminess Nerd Font"
-italic.family = "Terminess Nerd Font"
-bold_italic.family = "Terminess Nerd Font"
+# normal.family = "Terminess Nerd Font"
+# bold.family = "Terminess Nerd Font"
+# italic.family = "Terminess Nerd Font"
+# bold_italic.family = "Terminess Nerd Font"
 
-size = 14.0
+size = 13.0
