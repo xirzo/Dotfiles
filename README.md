@@ -1,5 +1,8 @@
 # Dotfiles
 
+## To Do
+- [] Split this repo into visual (i3/wayland) dotfiles and practical dotfiles
+
 🎨 My setup dotfiles
 
 ## Introduction
