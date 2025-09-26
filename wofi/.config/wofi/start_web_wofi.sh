@@ -24,6 +24,9 @@ case "$prefix" in
     w)
         url="https://en.wikipedia.org/wiki/Special:Search?search=$query"
         ;;
+    y)
+        url="https://www.youtube.com/results?search_query=$query"
+        ;;
     *)
         url="https://www.google.com/search?q=$search"
         ;;
