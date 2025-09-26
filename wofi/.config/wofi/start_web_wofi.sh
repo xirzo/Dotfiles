@@ -1,11 +1,23 @@
 #!/bin/bash
 
 if pgrep -x "wofi" >/dev/null; then
-    echo "Wofi is already running."
-    exit 1
+    pkill wofi
+    sleep 0.1
 fi
 
-search=$(wofi --show dmenu --prompt "Search (g/d/w) <query>:")
+search=$(wofi --show=dmenu \
+    --normal-window  \
+    --prompt "Search (g/d/w/y) <query>:" \
+    --style ~/.config/wofi/style.css \
+    --show-all=false \
+    --width 800 \
+    --location center \
+    --monitor -1 \
+    --line-padding 8 \
+    --lines 1 \
+    --no-actions \
+    --cache-file /dev/null \
+    --insensitive)
 
 [[ -z "$search" ]] && exit
 
