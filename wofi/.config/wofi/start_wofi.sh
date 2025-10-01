@@ -6,4 +6,4 @@ if pgrep -x "wofi" >/dev/null; then
     sleep 0.2
 fi
 
-wofi -n
+wofi -n --close-on-unfocus

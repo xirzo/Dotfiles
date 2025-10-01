@@ -16,7 +16,8 @@ search=$(wofi --show=dmenu \
     --lines 1 \
     --no-actions \
     --cache-file /dev/null \
-    --insensitive)
+    --insensitive \
+    --close-on-unfocus)
 
 [[ -z "$search" ]] && exit
 
