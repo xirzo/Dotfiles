@@ -19,7 +19,7 @@ Welcome to my personal dotfiles repository! This repository contains configurati
 - hyprland
 - hyprpaper
 - playerctl
-- wofi
+- [my wofi fork](https://github.com/xirzo/wofi) _I just really like to delete words with CTRL+W_
 - vivaldi
 - wl-clipboard
 - gwenview
