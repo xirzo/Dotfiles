@@ -45,3 +45,7 @@ setopt extendedglob
 
 # Created by `pipx` on 2025-09-13 08:31:45
 export PATH="$PATH:/home/xirzo/.local/bin"
+
+alias ls='ls -la'
+alias g='git'
+alias lg='lazygit'
