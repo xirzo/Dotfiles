@@ -1,4 +1,4 @@
-HISTSIZE=50000
+﻿HISTSIZE=50000
 SAVEHIST=50000
 
 unsetopt pathdirs
@@ -25,6 +25,7 @@ export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 export PATH="$PATH:$HOME/.dotnet/tools"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 export CC=/usr/bin/clang
 export CXX=/usr/bin/clang++
@@ -46,6 +47,6 @@ setopt extendedglob
 # Created by `pipx` on 2025-09-13 08:31:45
 export PATH="$PATH:/home/xirzo/.local/bin"
 
-alias ls='ls -la'
+alias n='nvim'
 alias g='git'
 alias lg='lazygit'
