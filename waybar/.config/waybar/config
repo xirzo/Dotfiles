@@ -19,7 +19,7 @@
         "battery"
     ],
     "clock": {
-        "format": "{:%I:%M:%S %p %B%e }",
+        "format": "{:%I:%M:%S %p %B %e }",
         "interval": 1,
         "tooltip-format": "<tt>{calendar}</tt>",
         "calendar": {
