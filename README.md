@@ -1,68 +1,25 @@
 # Dotfiles
 
-## To Do
-- [] Split this repo into visual (i3/wayland) dotfiles and practical dotfiles
-
-🎨 My setup dotfiles
-
-## Introduction
-
-Welcome to my personal dotfiles repository! This repository contains configuration files and scripts to set up my preferred development environment.
-
-## Current state
-
-![image](https://github.com/user-attachments/assets/49448f49-5c2f-4b91-869e-e67030d22d48)
-
-## Dependencies
-
-- Iosevka Nerd Font
-- hyprland
-- hyprpaper
-- playerctl
-- [my wofi fork](https://github.com/xirzo/wofi) _I just really like to delete words with CTRL+W_
-- vivaldi
-- wl-clipboard
-- gwenview
-- dolphin
-- pywal
-- hyprshot
-- hyprpicker
-- alacritty
-- hyprlock
-- hypridle
-- swaync
-- pipewire
-- wireplumber
-- qt5-wayland
-- qt6-wayland
-- xdg-desktop-portal-hyprland
-- hyprpolkitagent
-
 ## Installation
 
-To get started with this setup, follow these steps:
+To get started with this setup, make a clean archlinux installation, you need to install:
 
-1. Clone the repository:
+_pipewire, NetworkManager, 
 
-   ```sh
-   git clone https://github.com/xirzo/Dotfiles
-   cd Dotfiles
-   ```
 
-2. Install the dependencies listed above using your package manager.
-3. Symlink the configuration files to their respective locations. For example:
+Follow these steps:
 
-   ```sh
-   stow Dotfiles/hypr
-   ```
+1. Install git and clone the repository:
 
-4. Restart your window manager or reboot your system to apply the changes.
+```sh
+sudo pacman -S git
+git clone https://github.com/xirzo/Dotfiles ~/.dotfiles
+```
 
-## Usage
+2. Use the installation script
 
-Once the installation is complete, you can start using the customized environment. Here are most needed keybindings:
-
-- `Mod + Enter`: Open a new terminal.
-- `Mod + D`: For application selection.
-- `Mod + Shift + Q`: Close the focused window.
-- `Mod + [1-9]`: Switch to the corresponding workspace.
+```sh
+cd ~/.dotfiles
+sudo chmod +x ./install.sh
+./install.sh
+```
