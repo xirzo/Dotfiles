@@ -1,10 +1,21 @@
 #!/usr/bin/bash
 
+# TODO: install zsh and configure it
+# TODO: compile vim from soure with clipboard
 # TODO: amneziawg connect with hotkey
 # TODO: build and install logitech drivers
 # TODO: gh auth login somehow ???
 # TODO: remove amneziaclient, flameshot and qt, leave gtk
 # TODO: compile st from source
+# TODO: copy udev rule and replace name
+# TODO: stow the dotfiles
+
+# TODO: set dns to 1.1.1.1 in /etc/resolv.conf
+# and stop resolving dns with networkmanager, just append:
+# [main]
+# dns=none
+# to:
+# /etc/NetworkManager/NetworkManager.conf
 
 # ----- INSTALL YAY -----
 
@@ -16,15 +27,19 @@
 
 # ----- INSTALL GTK/QT PACKAGES -----
 # TODO: remove gtk and qt later (need to find alternatives for UNWANTED packages)
-unwanted_packages=("gtk3" "qt5-base")
+unwanted_packages=("gtk3" "qt5-base" "qt6-base")
 
 # yay --noconfirm -Sy ${unwanted_packages[@]}
 
 # ----- INSTALL PACKAGES -----
 # UNWANTED PACKAGES: flameshot (requires qt), blueman (requires gtk), firefox (requires gtk), emacs (requires gtk)
-packages=("ttf-roboto" "i3lock" "i3-wm" "i3status" "vim" "ly" "brightnessctl" "git" "github-cli" "stow" "emacs" "firefox" "7zip" "dmenu" "less" "man-db" "ttf-iosevka-nerd" "tmux" "bluez-utils" "blueman" "xclip" "flameshot" "openssh" "xorg-xrandr")
+packages=("ttf-roboto" "i3lock" "i3-wm" "i3status" "vim" "ly" "brightnessctl" "git" "github-cli" "stow" "emacs" "firefox" "7zip" "dmenu" "less" "man-db" "ttf-iosevka-nerd" "tmux" "bluez-utils" "blueman" "xclip" "flameshot" "openssh" "xorg-xrandr" "zsh" "gcc")
 
-aur_packages=("xfe" "st" "amneziavpn-bin")
+# TODO: set zsh as default shell
+# sudo chsh -s $(which zsh) <- does not work, as there is sbin
+# chsh -s /usr/bin/zsh
+
+aur_packages=("xfe" "amneziavpn-bin")
 
 yay --noconfirm -Sy ${packages[@]} ${aur_packages[@]}
 
@@ -39,3 +54,5 @@ yay --noconfirm -Sy ${packages[@]} ${aur_packages[@]}
 # ----- ENABLE BLUETOOTH -----
 # sudo systemctl enable bluetooth
 
+# ----- INSTALL ST ----- (requires vpn connection)
+sudo git clone https://git.suckless.org/st /opt/st
