@@ -62,6 +62,9 @@ floating_modifier $mod
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
 
+# start a filemanager
+bindsym $mod+Shift+f exec xfe
+
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
