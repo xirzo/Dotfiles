@@ -1,4 +1,5 @@
 .netrw*
+**eaf/
 **.swp
 # -*- mode: gitignore; -*-
 *~
