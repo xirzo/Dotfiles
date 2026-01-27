@@ -31,3 +31,9 @@ bindkey "^[[1;5C" forward-word
 
 unsetopt pathdirs
 zstyle ':completion:*' menu select
+
+# oh-my-zsh
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="custom"
+plugins=(git)
+source $ZSH/oh-my-zsh.sh

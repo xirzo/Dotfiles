@@ -23,7 +23,7 @@ set relativenumber
 set ruler
 
 " Blink cursor on error instead of beeping (grr)
-set visualbell
+set t_vb=
 
 " Encoding
 set encoding=utf-8
@@ -61,8 +61,8 @@ set showmode
 set showcmd
 
 " Searching
-nnoremap / /\v
-vnoremap / /\v
+" nnoremap / /\v
+" vnoremap / /\v
 set hlsearch
 set incsearch
 set ignorecase
@@ -82,14 +82,10 @@ set listchars=tab:▸\ ,eol:¬
 " Uncomment this to enable by default:
 " set list " To enable by default
 " Or use your leader key + l to toggle on/off
-map <leader>l :set list!<CR> " Toggle tabs and EOL
+"  map <leader>l :set list!<CR> " Toggle tabs and EOL
 " Color scheme (terminal)
 set t_Co=256
 set background=dark
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
-" put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
-" in ~/.vim/colors/ and uncomment:
-" colorscheme solarized
-"
 colorscheme elflord

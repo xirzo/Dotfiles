@@ -36,7 +36,6 @@ unwanted_packages=("gtk3" "qt5-base" "qt6-base")
 packages=("ttf-roboto" "i3lock" "i3-wm" "i3status" "vim" "ly" "brightnessctl" "git" "github-cli" "stow" "emacs" "firefox" "7zip" "dmenu" "less" "man-db" "ttf-iosevka-nerd" "tmux" "bluez-utils" "blueman" "xclip" "flameshot" "openssh" "xorg-xrandr" "zsh" "gcc")
 
 # TODO: set zsh as default shell
-# sudo chsh -s $(which zsh) <- does not work, as there is sbin
 # chsh -s /usr/bin/zsh
 
 aur_packages=("xfe" "amneziavpn-bin")
@@ -55,4 +54,8 @@ yay --noconfirm -Sy ${packages[@]} ${aur_packages[@]}
 # sudo systemctl enable bluetooth
 
 # ----- INSTALL ST ----- (requires vpn connection)
-sudo git clone https://git.suckless.org/st /opt/st
+# sudo git clone https://git.suckless.org/st /opt/st
+
+# ----- INSTALL OH-MY-ZSH
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
