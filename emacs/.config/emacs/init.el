@@ -28,23 +28,6 @@
   ;; Visual line mode (Move by visual line, not logical line)
   (global-visual-line-mode nil))
 
-
-;(use-package websocket)
-;(use-package typst-preview
-;  :load-path "~/.config/emacs/lisp/typst-preview/"
-;  :init
-;  (setq typst-preview-autostart t)
-;  (setq typst-preview-open-browser-automatically t)
-;
-;  :custom
-;  (typst-preview-browser "eaf-browser")
-;  (typst-preview-invert-colors "auto")
-;  (typst-preview-executable "/usr/sbin/tinymist")
-;  (typst-preview-partial-rendering t)
-;  
-;  :config
-;  (define-key typst-preview-mode-map (kbd "C-c C-j") 'typst-preview-send-position))
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

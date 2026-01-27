@@ -70,3 +70,19 @@
 ;; Typst treesitter mode
 (use-package typst-ts-mode
   :vc (:url "https://codeberg.org/meow_king/typst-ts-mode.git"))
+
+;; Typst live preview and websocket
+(use-package websocket)
+
+(use-package typst-preview
+  ;; :load-path "path/to/typst-preview.el" ;; if installed manually
+  :init
+  (setq typst-preview-autostart t)
+  (setq typst-preview-open-browser-automatically t)
+  :custom
+  (typst-preview-browser `eaf-browser)
+  (typst-preview-invert-colors "auto")
+  (typst-preview-executable "tinymist")
+  (typst-preview-partial-rendering t)
+  :config
+  (define-key typst-preview-mode-map (kbd "C-c C-j") 'typst-preview-send-position))
