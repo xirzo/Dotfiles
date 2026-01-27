@@ -15,6 +15,11 @@
 (eval-when-compile
   (require 'use-package))
 
+;; Magit
+(use-package magit
+  :ensure t
+  :bind (("C-x g" . magit-status)))
+
 ;; Evil
 (use-package evil
   :ensure t
@@ -39,3 +44,7 @@
 (use-package gruber-darker-theme
   :config
   (load-theme 'gruber-darker t))
+
+;; Language Modes
+(use-package elixir-mode
+  :ensure t)

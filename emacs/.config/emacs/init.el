@@ -1,6 +1,5 @@
 (load (expand-file-name "lisp/packages.el" user-emacs-directory))
 
-
 (use-package emacs
   :ensure nil
   :init
@@ -21,17 +20,13 @@
   (global-display-line-numbers-mode +1)
 
   ;; Dired
-  ;; (setq dired-dwim-target t)
+  (setq dired-dwim-target t)
 
   ;; Clipboard
   (setq select-enable-clipboard t)
 
   ;; Visual line mode (Move by visual line, not logical line)
   (global-visual-line-mode nil))
-
-
-;;;; Language Modes
-;(use-package elixir-mode)
 
 ;(use-package typst-ts-mode
 ;  :mode "\\.typ\\'"
@@ -75,24 +70,13 @@
 ;  
 ;  :config
 ;  (define-key typst-preview-mode-map (kbd "C-c C-j") 'typst-preview-send-position))
-;(custom-set-variables
-; ;; custom-set-variables was added by Custom.
-; ;; If you edit it by hand, you could mess it up, so be careful.
-; ;; Your init file should contain only one such instance.
-; ;; If there is more than one, they won't work right.
-; '(package-selected-packages nil))
-;(custom-set-faces
-; ;; custom-set-faces was added by Custom.
-; ;; If you edit it by hand, you could mess it up, so be careful.
-; ;; Your init file should contain only one such instance.
-; ;; If there is more than one, they won't work right.
-; )
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages nil))
+ '(package-selected-packages '(evil-collection gruber-darker-theme magit)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
