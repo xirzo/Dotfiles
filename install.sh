@@ -38,7 +38,7 @@ packages=("ttf-roboto" "i3lock" "i3-wm" "i3status" "vim" "ly" "brightnessctl" "g
 # TODO: set zsh as default shell
 # chsh -s /usr/bin/zsh
 
-aur_packages=("xfe" "amneziavpn-bin")
+aur_packages=("xfe" "amneziavpn-bin" "typst")
 
 yay --noconfirm -Sy ${packages[@]} ${aur_packages[@]}
 

@@ -28,14 +28,6 @@
   ;; Visual line mode (Move by visual line, not logical line)
   (global-visual-line-mode nil))
 
-;(use-package typst-ts-mode
-;  :mode "\\.typ\\'"
-;  :init
-;  (setq treesit-language-source-alist
-;        '((typst "https://github.com/uben0/tree-sitter-typst")))
-;  :config
-;  (unless (treesit-language-available-p 'typst)
-;    (treesit-install-language-grammar 'typst)))
 
 ;(use-package websocket)
 ;(use-package typst-preview
@@ -58,7 +50,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages nil))
+ '(package-selected-packages nil)
+ '(package-vc-selected-packages
+   '((typst-ts-mode :url
+		    "https://codeberg.org/meow_king/typst-ts-mode.git"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
