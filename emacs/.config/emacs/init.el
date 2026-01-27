@@ -76,7 +76,16 @@
   (keymap-global-set "<escape>" 'keyboard-escape-quit)
   ;; Compilation shortcuts
   (define-key evil-normal-state-map (kbd "C-c c") 'compile)
-  (define-key evil-normal-state-map (kbd "C-c r") 'recompile))
+  (define-key evil-normal-state-map (kbd "C-c r") 'recompile)
+  ;; Russian Keybindings
+  (cl-loop for (rus . eng) in
+           '((?й . ?q) (?ц . ?w) (?у . ?e) (?к . ?r) (?е . ?t) (?н . ?y) (?г . ?u) (?ш . ?i) (?щ . ?o) (?з . ?p) (?х . ?\[) (?ъ . ?\])
+             (?ф . ?a) (?ы . ?s) (?в . ?d) (?а . ?f) (?п . ?g) (?р . ?h) (?о . ?j) (?л . ?k) (?д . ?l) (?ж . ?\;) (?э . ?\')
+             (?я . ?z) (?ч . ?x) (?с . ?c) (?м . ?v) (?и . ?b) (?т . ?n) (?ь . ?m) (?б . ?\,) (?ю . ?\.))
+           do
+           (define-key evil-normal-state-map (char-to-string rus) (char-to-string eng))
+           (define-key evil-motion-state-map (char-to-string rus) (char-to-string eng))
+           (define-key evil-visual-state-map (char-to-string rus) (char-to-string eng))))
 
 (use-package evil-collection
   :after evil
@@ -134,8 +143,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(eaf elixir-mode evil-collection gruber-darker-theme typst-preview
-	 typst-ts-mode websocket)))
+   '(eaf elixir-mode evil-collection gruber-darker-theme reverse-im
+	 typst-preview typst-ts-mode websocket)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
