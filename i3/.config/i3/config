@@ -45,6 +45,10 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym  --release XF86MonBrightnessUp exec brightnessctl s +5%
 bindsym  --release XF86MonBrightnessDown exec brightnessctl s 5%-
 
+# screenshots
+bindsym Print exec "flameshot gui"
+bindsym $mod+Shift+s exec "flameshot gui"
+
 # monitor
 exec --no-startup-id ~/.config/i3/scripts/monitor-hotplug.sh
 
