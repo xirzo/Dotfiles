@@ -4,7 +4,7 @@
 
 To get started with this setup, make a clean archlinux installation, you need to install:
 
-_pipewire, NetworkManager, 
+_pipewire, NetworkManager, ... (TODO: add full configuration)_
 
 
 Follow these steps:
@@ -23,3 +23,19 @@ cd ~/.dotfiles
 sudo chmod +x ./install.sh
 ./install.sh
 ```
+
+
+## Emacs EAF
+
+```sh
+cd ~/.config/emacs/site-lisp/emacs-application-framework
+```
+
+Choose most of packages, as first time I chose only essential nothing
+worked... still needs tweaking:
+
+```sh
+./install-eaf.py
+```
+
+(TODO: make  '.oh-my-zsh' with custom theme a git submodule)

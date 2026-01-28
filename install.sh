@@ -33,12 +33,14 @@ unwanted_packages=("gtk3" "qt5-base" "qt6-base")
 
 # ----- INSTALL PACKAGES -----
 # UNWANTED PACKAGES: flameshot (requires qt), blueman (requires gtk), firefox (requires gtk), emacs (requires gtk)
-packages=("ttf-roboto" "i3lock" "i3-wm" "i3status" "vim" "ly" "brightnessctl" "git" "github-cli" "stow" "emacs" "firefox" "7zip" "dmenu" "less" "man-db" "ttf-iosevka-nerd" "tmux" "bluez-utils" "blueman" "xclip" "flameshot" "openssh" "xorg-xrandr" "zsh" "gcc" "mpv" "network-manager-applet")
+packages=("ttf-roboto" "i3lock" "i3-wm" "i3status" "vim" "ly" "brightnessctl" "git" "github-cli" "stow" "emacs" "firefox" "7zip" "dmenu" "less" "man-db" "ttf-iosevka-nerd" "tmux" "bluez-utils" "blueman" "xclip" "flameshot" "openssh" "xorg-xrandr" "zsh" "gcc" "mpv" "network-manager-applet" "pipewire" "pipewire-pulse" "wireplumber" "pipewire-alsa" "pipewire-jack" "autorandr")
+
+# systemctl --user enable --now pipewire.socket pipewire-pulse.socket
 
 # TODO: set zsh as default shell
 # chsh -s /usr/bin/zsh
 
-aur_packages=("xfe" "amneziavpn-bin" "typst")
+aur_packages=("xfe" "amneziavpn-bin" "typst" "tealdeer")
 
 yay --noconfirm -Sy ${packages[@]} ${aur_packages[@]}
 
@@ -56,6 +58,17 @@ yay --noconfirm -Sy ${packages[@]} ${aur_packages[@]}
 # ----- INSTALL ST ----- (requires vpn connection)
 # sudo git clone https://git.suckless.org/st /opt/st
 
-# ----- INSTALL OH-MY-ZSH
+# ----- INSTALL OH-MY-ZSH -----
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+# ----- SETUP MONITORS PROFILES -----
+# xrandr --output eDP-1 --auto --primary --output HDMI-1 --off
+# autorandr --save laptop
+
+# HDMI connected profile (plug in HDMI first)
+# xrandr --output eDP-1 --off --output HDMI-1 --auto --primary
+# autorandr --save docked
+#
+# sudo systemctl enable --now autorandr.service
+
+# tldr  --update
