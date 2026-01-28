@@ -295,3 +295,11 @@
   :config
   (add-to-list 'treesit-language-source-alist
    '(haskell . ("https://github.com/tree-sitter/tree-sitter-haskell" "v0.23.1"))))
+
+(use-package exec-path-from-shell
+    :ensure t)
+
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
+
+(exec-path-from-shell-copy-env "LD_LIBRARY_PATH")
