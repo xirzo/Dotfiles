@@ -33,8 +33,8 @@ unwanted_packages=("gtk3" "qt5-base" "qt6-base")
 
 # ----- INSTALL PACKAGES -----
 # UNWANTED PACKAGES: flameshot (requires qt), blueman (requires gtk), firefox (requires gtk), emacs (requires gtk)
-packages=("ttf-roboto" "i3lock" "i3-wm" "i3status" "vim" "ly" "brightnessctl" "git" "github-cli" "stow" "emacs" "firefox" "7zip" "dmenu" "less" "man-db" "ttf-iosevka-nerd" "tmux" "bluez-utils" "blueman" "xclip" "flameshot" "openssh" "xorg-xrandr" "zsh" "gcc" "mpv" "network-manager-applet" "pipewire" "pipewire-pulse" "wireplumber" "pipewire-alsa" "pipewire-jack" "autorandr" "unzip")
-
+packages=("ttf-roboto" "i3lock" "i3-wm" "i3status" "vim" "ly" "brightnessctl" "git" "github-cli" "stow" "emacs" "firefox" "7zip" "dmenu" "less" "man-db" "ttf-iosevka-nerd" "tmux" "bluez-utils" "blueman" "xclip" "flameshot" "openssh" "xorg-xrandr" "zsh" "gcc" "mpv" "network-manager-applet" "pipewire" "pipewire-pulse" "wireplumber" "pipewire-alsa" "pipewire-jack" "autorandr" "unzip" "alsa-utils" "sof-firmware
+")
 # systemctl --user enable --now pipewire.socket pipewire-pulse.socket
 
 # TODO: set zsh as default shell
@@ -72,3 +72,8 @@ yay --noconfirm -Sy ${packages[@]} ${aur_packages[@]}
 # sudo systemctl enable --now autorandr.service
 
 # tldr  --update
+
+# ----- SETUP SOUND SYSTEMS -----
+#systemctl --user enable --now wireplumber pipewire pipewire-pulse
+
+# REBOOOOOOT
