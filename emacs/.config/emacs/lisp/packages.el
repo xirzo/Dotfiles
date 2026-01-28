@@ -42,6 +42,7 @@
 
   ;; commands
   (evil-ex-define-cmd "ц" 'save-buffer)
+  (evil-ex-define-cmd "й" 'evil-quit)
 
   ;; normal state map
   (define-key evil-normal-state-map "ф" 'evil-append)
