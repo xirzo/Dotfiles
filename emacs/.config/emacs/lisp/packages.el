@@ -91,7 +91,6 @@
   (define-key evil-motion-state-map "л" 'evil-previous-visual-line)
   (define-key evil-motion-state-map "0" 'evil-beginning-of-line)
   ;; (define-key evil-motion-state-map "п;" 'evil-end-of-line) ;; to not clash with regular ;
-  (global-unset-key (kbd ";"))
   (define-key evil-motion-state-map ";" 'evil-end-of-line)
 
   (define-key evil-motion-state-map "д" 'evil-forward-char)
