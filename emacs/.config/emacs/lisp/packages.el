@@ -22,7 +22,6 @@
 
 ;; Evil
 
-;; TODO: C-ц <-> C-w
 ;; TODO: russian version of :w <-> Жц
 (use-package evil
   :ensure t
@@ -158,6 +157,9 @@
   (define-key evil-inner-text-objects-map "Б" 'evil-inner-angle)
   (define-key evil-inner-text-objects-map "Ю" 'evil-inner-angle)
   (define-key evil-inner-text-objects-map "е" 'evil-inner-tag)
+
+  ;; Insert state map
+  (define-key evil-insert-state-map (kbd "C-ц") 'evil-delete-backward-word)
 
   ;; Visual state map
   (define-key evil-visual-state-map "Ф" 'evil-append)
