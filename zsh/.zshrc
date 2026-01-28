@@ -37,3 +37,6 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="custom"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
+
+# haskell
+[ -f "/home/xir/.ghcup/env" ] && . "/home/xir/.ghcup/env" # ghcup-env

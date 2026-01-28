@@ -274,3 +274,15 @@
   :config
   (define-key typst-preview-mode-map (kbd "C-c C-j") 'typst-preview-send-position))
 
+
+;; WARN: use treesit-install-language-grammar with haskell as arg
+(use-package haskell-ts-mode
+  :ensure t
+  :custom
+  (haskell-ts-font-lock-level 4)
+  (haskell-ts-use-indent t)
+  (haskell-ts-ghci "ghci")
+  (haskell-ts-use-indent t)
+  :config
+  (add-to-list 'treesit-language-source-alist
+   '(haskell . ("https://github.com/tree-sitter/tree-sitter-haskell" "v0.23.1"))))
