@@ -15,6 +15,7 @@ export CC=/usr/bin/gcc
 export CXX=/usr/bin/g++
 export MANPAGER="less"
 export EDITOR=emacs
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
 # delete directory paths word-by-word
 backward-kill-dir () {
@@ -40,3 +41,4 @@ source $ZSH/oh-my-zsh.sh
 
 # haskell
 [ -f "/home/xir/.ghcup/env" ] && . "/home/xir/.ghcup/env" # ghcup-env
+
