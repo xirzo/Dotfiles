@@ -40,6 +40,9 @@
   ;; Source for cyrillic keybindings:
   ;; https://github.com/artempyanykh/evil-russian
 
+  ;; commands
+  (evil-ex-define-cmd "ц" 'save-buffer)
+
   ;; normal state map
   (define-key evil-normal-state-map "ф" 'evil-append)
   (define-key evil-normal-state-map "Ф" 'evil-append-line)
@@ -76,6 +79,7 @@
   (define-key evil-normal-state-map "п," 'evil-rot13)
   (define-key evil-normal-state-map "Б" 'evil-shift-left)
   (define-key evil-normal-state-map "Ю" 'evil-shift-right)
+  (define-key evil-normal-state-map "Ж" 'evil-ex)
 
   ;; Motion state map
   (define-key evil-motion-state-map "и" 'evil-backward-word-begin)
