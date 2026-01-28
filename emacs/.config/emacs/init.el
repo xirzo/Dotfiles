@@ -46,3 +46,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(setenv "PATH" "/home/xir/.cabal/bin:/home/xir/.ghcup/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl")
+(setq exec-path (split-string (getenv "PATH") ":"))

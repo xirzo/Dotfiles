@@ -20,12 +20,14 @@
   :ensure t
   :bind (("C-x g" . magit-status)))
 
-;; TODO: bind russian keys to evil
-
 ;; Evil
+
+;; TODO: C-ц <-> C-w
+;; TODO: russian version of :w <-> Жц
 (use-package evil
   :ensure t
   :init
+  (setopt evil-undo-system 'undo-redo)
   (setq evil-want-keybinding nil)
   (setq evil-respect-visual-line-mode t)
   :config
@@ -36,7 +38,7 @@
   (define-key evil-normal-state-map (kbd "C-c c") 'compile)
   (define-key evil-normal-state-map (kbd "C-c r") 'recompile)
 
-  ;; Soruce for cyrillic keybindings:
+  ;; Source for cyrillic keybindings:
   ;; https://github.com/artempyanykh/evil-russian
 
   ;; normal state map
