@@ -28,6 +28,9 @@
   ;; Visual line mode (Move by visual line, not logical line)
   (global-visual-line-mode nil))
 
+;; Compilation mode colorj
+(add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
