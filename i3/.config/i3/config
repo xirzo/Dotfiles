@@ -49,9 +49,6 @@ bindsym  --release XF86MonBrightnessDown exec brightnessctl s 5%-
 bindsym Print exec "flameshot gui"
 bindsym $mod+Shift+s exec "flameshot gui"
 
-# monitor
-exec --no-startup-id ~/.config/i3/scripts/monitor-hotplug.sh
-
 # language switch
 exec_always "setxkbmap -layout 'us,ru' -option 'grp:rshift_toggle, grp:win_space_toggle'"
 
