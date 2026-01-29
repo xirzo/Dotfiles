@@ -75,4 +75,7 @@ yay --noconfirm -Sy ${packages[@]} ${aur_packages[@]}
 # ----- SETUP SOUND SYSTEMS -----
 #systemctl --user enable --now wireplumber pipewire pipewire-pulse
 
+# ----- SETUP EMACS DAEMON-----
+# systemctl --user enable --now emacs
+
 # REBOOOOOOT
