@@ -40,3 +40,5 @@ worked... still needs tweaking:
 
 (TODO: make  '.oh-my-zsh' with custom theme a git submodule)
 (TODO: add language layout, sound, mute status to i3status or i3blocks) 
+(TODO: vpn via shortcuts)
+(TODO: bluetooth via shortcuts)
