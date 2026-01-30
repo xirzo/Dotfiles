@@ -36,7 +36,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages nil)
+ '(package-selected-packages
+   '(elixir-mode evil-collection exec-path-from-shell gleam-ts-mode
+		 gruber-darker-theme haskell-ts-mode magit
+		 typst-preview typst-ts-mode))
  '(package-vc-selected-packages
    '((typst-ts-mode :url
 		    "https://codeberg.org/meow_king/typst-ts-mode.git"))))

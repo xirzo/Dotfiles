@@ -34,8 +34,8 @@
   (keymap-global-set "<escape>" 'keyboard-escape-quit)
 
   ;; Compilation shortcuts
-  (define-key evil-normal-state-map (kbd "C-c c") 'compile)
-  (define-key evil-normal-state-map (kbd "C-c r") 'recompile)
+  (define-key evil-normal-state-map (kbd "<f4>") 'recompile)
+  (define-key evil-normal-state-map (kbd "<f5>") 'compile)
 
   ;; Source for cyrillic keybindings:
   ;; https://github.com/artempyanykh/evil-russian
@@ -303,3 +303,16 @@
   (exec-path-from-shell-initialize))
 
 (exec-path-from-shell-copy-env "LD_LIBRARY_PATH")
+
+(use-package gleam-ts-mode
+  :mode (rx ".gleam" eos)
+  :config
+  (unless (treesit-language-available-p 'gleam)
+    (gleam-ts-install-grammar)))
+
+;; TODO: buffers manipulation
+;; TODO: multicursor
+;; TODO: some compilation mode stuff ?
+;; TODO: git client
+;; TODO: built-in terminal
+;; TODO: eaf-browser
