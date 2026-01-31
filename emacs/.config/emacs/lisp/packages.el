@@ -310,9 +310,21 @@
   (unless (treesit-language-available-p 'gleam)
     (gleam-ts-install-grammar)))
 
+(use-package evil-mc
+  :ensure t
+  :config
+  (evil-mc-mode 1)
+  (global-evil-mc-mode 1)
+  (evil-define-key 'visual evil-mc-key-map
+    "A" #'evil-mc-make-cursor-in-visual-selection-end
+    "I" #'evil-mc-make-cursor-in-visual-selection-beu)
+
+  (evil-define-key 'normal evil-mc-keu-map
+    (kbd "M-n") 'evil-mc-undo-all-cursors)
+  )
+
 ;; TODO: buffers manipulation
-;; TODO: multicursor
-;; TODO: some compilation mode stuff ?
 ;; TODO: git client
 ;; TODO: built-in terminal
 ;; TODO: eaf-browser
+;; TODO: some compilation mode stuff ?
