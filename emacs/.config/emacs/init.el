@@ -37,10 +37,10 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(elixir-mode evil-collection evil-mc evil-multiedit
-		 exec-path-from-shell gleam-ts-mode
-		 gruber-darker-theme haskell-ts-mode magit
-		 multiple-cursors typst-preview typst-ts-mode))
+   '(direnv elixir-mode evil-collection evil-mc evil-multiedit
+	    exec-path-from-shell gleam-ts-mode gruber-darker-theme
+	    haskell-ts-mode magit multiple-cursors typst-preview
+	    typst-ts-mode))
  '(package-vc-selected-packages
    '((typst-ts-mode :url
 		    "https://codeberg.org/meow_king/typst-ts-mode.git"))))

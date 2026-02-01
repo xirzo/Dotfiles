@@ -320,8 +320,11 @@
     "I" #'evil-mc-make-cursor-in-visual-selection-beu)
 
   (evil-define-key 'normal evil-mc-keu-map
-    (kbd "M-n") 'evil-mc-undo-all-cursors)
-  )
+    (kbd "M-n") 'evil-mc-undo-all-cursors))
+
+(use-package direnv
+ :config
+ (direnv-mode))
 
 ;; TODO: buffers manipulation
 ;; TODO: git client

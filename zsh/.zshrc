@@ -8,6 +8,7 @@ setopt EXTENDED_HISTORY
 alias g='git'
 alias lg='lazygit'
 alias v='vim'
+alias nix-shell='nix-shell --run zsh'
 
 plugins=(git)
 
@@ -16,6 +17,7 @@ export CXX=/usr/bin/g++
 export MANPAGER="less"
 export EDITOR=emacs
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+export PATH=$PATH:~/.nix-profile/bin
 
 # delete directory paths word-by-word
 backward-kill-dir () {
@@ -42,3 +44,4 @@ source $ZSH/oh-my-zsh.sh
 # haskell
 [ -f "/home/xir/.ghcup/env" ] && . "/home/xir/.ghcup/env" # ghcup-env
 
+eval "$(direnv hook zsh)"
