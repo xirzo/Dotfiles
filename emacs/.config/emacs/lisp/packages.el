@@ -317,10 +317,10 @@
   (global-evil-mc-mode 1)
   (evil-define-key 'visual evil-mc-key-map
     "A" #'evil-mc-make-cursor-in-visual-selection-end
-    "I" #'evil-mc-make-cursor-in-visual-selection-beu)
+    "I" #'evil-mc-make-cursor-in-visual-selection-beg)
 
-  (evil-define-key 'normal evil-mc-keu-map
-    (kbd "M-n") 'evil-mc-undo-all-cursors))
+  (evil-define-key 'normal evil-mc-key-map
+    (kbd "M-n") #'evil-mc-undo-all-cursors))
 
 (use-package direnv
  :config
