@@ -326,6 +326,9 @@
  :config
  (direnv-mode))
 
+(autoload 'nasm-mode "~/.config/emacs/lisp/nasm-mode.el" "" t)
+(add-to-list 'auto-mode-alist '("\\.\\(asm\\|s\\)$" . nasm-mode))
+
 ;; TODO: buffers manipulation
 ;; TODO: git client
 ;; TODO: built-in terminal
