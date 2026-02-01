@@ -1,5 +1,7 @@
 (load (expand-file-name "lisp/packages.el" user-emacs-directory))
 
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
 (use-package emacs
   :ensure nil
   :init
@@ -28,8 +30,34 @@
   ;; Visual line mode (Move by visual line, not logical line)
   (global-visual-line-mode nil))
 
-;; Compilation mode colorj
+;; Compilation mode color
 (add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
+;; (setq compilation-auto-jump-to-first-error t)
+(setq compilation-scroll-output 'first-error)
+
+;; Source: https://stackoverflow.com/questions/11043004/emacs-compile-buffer-auto-close
+(defun bury-compile-buffer-if-successful (buffer string)
+  "Bury a compilation buffer if succeeded without warnings."
+  (when (and
+	 (buffer-live-p buffer)
+	 (string-match "compilation" (buffer-name buffer))
+	 (string-match "finished" string)
+	 )
+    (run-with-timer 1 nil
+		    (lambda (buf)
+		      (bury-buffer buf)
+		      (switch-to-prev-buffer (get-buffer-window buf) 'kill)
+		      ;; delete window if it was opened by the compilation process
+		      ;; (have two windows with the same buffer)
+		      (when
+			  (and (equal 2 (length (window-list)))
+			       (eq (window-buffer (car (window-list))) (window-buffer (cadr (window-list)))))
+			(delete-window (selected-window))
+			)
+		      )
+		    buffer)))
+  (add-hook 'compilation-finish-functions 'bury-compile-buffer-if-successful)
+;; Source end
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
