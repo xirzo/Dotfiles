@@ -326,7 +326,9 @@
  :config
  (direnv-mode))
 
+
 (autoload 'nasm-mode "~/.config/emacs/lisp/nasm-mode.el" "" t)
+(setq nasm-basic-offset 4)
 (add-to-list 'auto-mode-alist '("\\.\\(asm\\|s\\)$" . nasm-mode))
 
 ;; TODO: buffers manipulation
