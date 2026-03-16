@@ -4,6 +4,10 @@
                          ("gnu" . "https://elpa.gnu.org/packages/")))
 
 (package-initialize)
+;; (when (not package-archive-contents)
+;;   (package-refresh-contents))
+
+; (package-refresh-contents)
 
 ;; Ensure packages are installed by default
 (setq use-package-always-ensure t)
@@ -12,8 +16,37 @@
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
+
 (eval-when-compile
   (require 'use-package))
+
+(use-package emacs
+  :ensure nil
+  :init
+  ;; Turn off gui stuff
+  (scroll-bar-mode -1)
+  (menu-bar-mode -1)
+  (tool-bar-mode -1)
+  (setq inhibit-startup-message t)
+  
+  ;; Undecorated frame
+  (add-to-list 'default-frame-alist '(undecorated . t))
+  
+  ;; Font
+  (add-to-list 'default-frame-alist '(font . "Iosevka Nerd Font-17"))
+
+  ;; Line numbers
+  (setq display-line-numbers-type 'relative)
+  (global-display-line-numbers-mode +1)
+
+  ;; Dired
+  (setq dired-dwim-target t)
+
+  ;; Clipboard
+  (setq select-enable-clipboard t)
+
+  ;; Visual line mode (Move by visual line, not logical line)
+  (global-visual-line-mode nil))
 
 ;; Magit
 (use-package magit
@@ -310,11 +343,22 @@
   (unless (treesit-language-available-p 'gleam)
     (gleam-ts-install-grammar)))
 
-(use-package evil-mc
+;; Source: https://github.com/gabesoft/evil-mc/blob/master/evil-mc.el
+;;    (evil-define-key* '(normal visual) map
+;;                      (kbd evil-mc-cursors-keymap-prefix) evil-mc-cursors-map
+;;                      (kbd "M-n") 'evil-mc-make-and-goto-next-cursor
+;;                      (kbd "M-p") 'evil-mc-make-and-goto-prev-cursor
+;;                      (kbd "C-n") 'evil-mc-make-and-goto-next-match
+;;                      (kbd "C-t") 'evil-mc-skip-and-goto-next-match
+;;                      (kbd "C-p") 'evil-mc-make-and-goto-prev-match)
+
+ (use-package evil-mc
   :ensure t
   :config
   (evil-mc-mode 1)
   (global-evil-mc-mode 1)
+  (setq evil-mc-mode-line-text-inverse-colors t)
+
   (evil-define-key 'visual evil-mc-key-map
     "A" #'evil-mc-make-cursor-in-visual-selection-end
     "I" #'evil-mc-make-cursor-in-visual-selection-beg)
@@ -326,13 +370,81 @@
  :config
  (direnv-mode))
 
-
 (autoload 'nasm-mode "~/.config/emacs/lisp/nasm-mode.el" "" t)
 (setq nasm-basic-offset 4)
 (add-to-list 'auto-mode-alist '("\\.\\(asm\\|s\\)$" . nasm-mode))
 
+(use-package glsl-mode
+  :ensure t)
+
+(use-package which-key
+    :config
+    (which-key-mode))
+
+(autoload 'b-mode "~/.config/emacs/lisp/b-mode.el" t)
+(add-to-list 'auto-mode-alist '("\\.b\\'" . b-mode))
+
+(use-package lsp-mode
+  :commands (lsp lsp-deferred)
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  (setq lsp-auto-guess-root t) 
+  ;; :hook ((lsp-mode . lsp-enable-which-key-integration))
+  ;; :commands lsp
+  :config
+    ;; Evil Integration
+    (evil-define-key 'normal lsp-mode-map (kbd "gd") 'lsp-find-definition)
+
+    (evil-define-key 'normal lsp-mode-map (kbd "gr") 'lsp-find-references)
+    (evil-define-key 'normal lsp-mode-map (kbd "K")  'lsp-describe-thing-at-point)
+    (evil-define-key 'normal lsp-mode-map (kbd "gD") 'lsp-find-declaration)
+    (lsp-enable-which-key-integration t))
+
+
+(use-package typescript-mode
+  :mode "\\.ts\\'"
+  :hook (typescript-mode . lsp-deferred)
+  :config (setq typescript-indent-level 2))
+
+(use-package lsp-ui
+  :commands lsp-ui-mode
+  :hook (lsp-mode . lsp-ui-mode)
+  ;; custom
+  ;; (lsp-ui-sideline-enable t)
+  ;; (lsp-ui-sideline-show-diagnostics t)
+  ;;(lsp-ui-sideline-show-code-actions t)
+  ;;(lsp-ui-sideline-show-hover t)
+  )
+
+(use-package which-key
+    :config
+    (which-key-mode))
+
+(use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
+
+(use-package company
+  :after lsp-mode
+  :hook (lsp-mode . company-mode)
+  :bind (:map company-active-map
+         ("<tab>" . company-complete-selection))
+        (:map lsp-mode-map
+         ("<tab>" . company-indent-or-complete-common))
+  :custom
+  (company-minimum-prefix-length 1)
+  (company-idle-delay 0.0))
+
+(use-package company-box
+  :hook (company-mode . company-box-mode))
+
+(use-package kanagawa-themes
+  :ensure t
+  :config
+  (load-theme 'kanagawa-wave t))
+
 ;; TODO: buffers manipulation
-;; TODO: git client
-;; TODO: built-in terminal
-;; TODO: eaf-browser
+;; TODO: set/learn magit bindings
+;; TODO: set/learn eaf-browser bindings
+
 ;; TODO: some compilation mode stuff ?
+
+;; TODO: add which key space keybinding
