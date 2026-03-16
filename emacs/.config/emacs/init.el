@@ -2,38 +2,17 @@
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
-(use-package emacs
-  :ensure nil
-  :init
-  ;; Turn off gui stuff
-  (scroll-bar-mode -1)
-  (menu-bar-mode -1)
-  (tool-bar-mode -1)
-  (setq inhibit-startup-message t)
-  
-  ;; Undecorated frame
-  (add-to-list 'default-frame-alist '(undecorated . t))
-  
-  ;; Font
-  (add-to-list 'default-frame-alist '(font . "Iosevka Nerd Font-17"))
+(setq auto-save-file-name-transforms `((".*" "~/.emacs.d/auto-saves/" t)))
 
-  ;; Line numbers
-  (setq display-line-numbers-type 'relative)
-  (global-display-line-numbers-mode +1)
+(make-directory "~/.emacs.d/auto-saves/" t)
 
-  ;; Dired
-  (setq dired-dwim-target t)
+(setq kill-buffer-delete-auto-save-files t)
 
-  ;; Clipboard
-  (setq select-enable-clipboard t)
-
-  ;; Visual line mode (Move by visual line, not logical line)
-  (global-visual-line-mode nil))
-
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 ;; Compilation mode color
 (add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
 ;; (setq compilation-auto-jump-to-first-error t)
-(setq compilation-scroll-output 'first-error)
+;; (setq compilation-scroll-output 'first-error)
 
 ;; Source: https://stackoverflow.com/questions/11043004/emacs-compile-buffer-auto-close
 (defun bury-compile-buffer-if-successful (buffer string)
@@ -65,10 +44,12 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(direnv elixir-mode evil-collection evil-mc evil-multiedit
-	    exec-path-from-shell gleam-ts-mode gruber-darker-theme
-	    haskell-ts-mode magit multiple-cursors typst-preview
-	    typst-ts-mode))
+   '(async company company-box direnv elixir-mode evil evil-collection
+	   evil-mc evil-multiedit exec-path-from-shell f gleam-ts-mode
+	   glsl-mode gruber-darker-theme haskell-ts-mode ht ivy
+	   kanagawa-themes lsp-mode lsp-ui lv magit markdown-mode
+	   multiple-cursors spinner typst-preview typst-ts-mode
+	   wfnames yaml))
  '(package-vc-selected-packages
    '((typst-ts-mode :url
 		    "https://codeberg.org/meow_king/typst-ts-mode.git"))))
