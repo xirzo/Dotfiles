@@ -15,9 +15,8 @@ plugins=(git)
 export CC=/usr/bin/gcc
 export CXX=/usr/bin/g++
 export MANPAGER="less"
-export EDITOR=emacs
+export EDITOR=vim
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
-export PATH=$PATH:~/.nix-profile/bin
 
 # delete directory paths word-by-word
 backward-kill-dir () {
@@ -37,11 +36,6 @@ zstyle ':completion:*' menu select
 
 # oh-my-zsh
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="custom"
+ZSH_THEME="robbyrussell"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
-
-# haskell
-[ -f "/home/xir/.ghcup/env" ] && . "/home/xir/.ghcup/env" # ghcup-env
-
-eval "$(direnv hook zsh)"
