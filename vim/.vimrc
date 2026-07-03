@@ -1,3 +1,4 @@
+
 set nocompatible
 
 filetype off
@@ -9,6 +10,15 @@ set clipboard=unnamedplus
 if has("gui_running")
     set guifont=Iosevka\ Nerd\ Font\ 18
 endif
+
+call plug#begin()
+
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
+call plug#end()
 
 " TODO: Pick a leader key
 " let mapleader = ","
