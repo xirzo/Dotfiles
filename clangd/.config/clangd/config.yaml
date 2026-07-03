@@ -1,0 +1,25 @@
+CompileFlags:
+  Add:
+    - -Wall
+    - -Wextra
+    - -Wpedantic
+  
+  Remove:
+    - -fsanitize=address
+    - -fsanitize=undefined
+    
+  CompilationDatabase: compile_commands.json
+
+Index:
+  Background: Build
+
+Diagnostics:
+  UnusedIncludes: None
+  
+  Suppress:
+    - "pp_file_not_found"
+    - "unknown_argument"
+    - "suspicious_string_literal"
+    - "unused_include"
+
+Threads: 4
