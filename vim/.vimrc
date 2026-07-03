@@ -26,7 +26,6 @@ call plug#end()
 " Security
 set modelines=0
 
-" Show line numbers
 set relativenumber
 
 " Show file stats
@@ -35,8 +34,9 @@ set ruler
 " Blink cursor on error instead of beeping (grr)
 set t_vb=
 
-" Encoding
 set encoding=utf-8
+
+set mouse=a
 
 " Whitespace
 set wrap
