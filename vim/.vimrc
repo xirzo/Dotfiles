@@ -20,6 +20,21 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 call plug#end()
 
+" Autocompletion movement
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+" Code actions
+nnoremap <silent> <space>ca :LspCodeAction<CR>
+" Go to definition
+nmap <silent> gd <Plug>(lsp-definition)
+" Go back
+nmap <silent> <C-o> <C-o>
+" Find references
+nmap <silent> gr <Plug>(lsp-references)
+" Show documentation/hover information
+nnoremap <silent> K :LspHover<CR>
+
 " TODO: Pick a leader key
 " let mapleader = ","
 
