@@ -11,6 +11,8 @@ if has("gui_running")
     set guifont=Iosevka\ Nerd\ Font\ 18
 endif
 
+let mapleader = "\<Space>"
+
 call plug#begin()
 
 Plug 'prabirshrestha/vim-lsp'
@@ -35,8 +37,13 @@ nmap <silent> gr <Plug>(lsp-references)
 " Show documentation/hover information
 nnoremap <silent> K :LspHover<CR>
 
-" TODO: Pick a leader key
-" let mapleader = ","
+" Cycle through buffers
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprevious<CR>
+
+" Close current buffer
+nnoremap Q :bdelete<CR>
+
 
 " Security
 set modelines=0
