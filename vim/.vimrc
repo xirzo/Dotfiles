@@ -108,8 +108,15 @@ nnoremap <F1> :set invfullscreen<CR>
 vnoremap <F1> :set invfullscreen<CR>
 " Textmate holdouts
 
+" Set clang-format as the formatter for C/C++ files
+autocmd FileType c,cpp,objc setlocal formatprg=clang-format
+
+" Format with gq (normal mode) or gqap (format paragraph)
+" Or use this mapping:
+nnoremap <leader>f :normal! gggqG<CR>
+
 " Formatting
-map <leader>q gqip
+" map <leader>q gqip
 " Visualize tabs and newlines
 set listchars=tab:▸\ ,eol:¬
 " Uncomment this to enable by default:
@@ -121,4 +128,4 @@ set t_Co=256
 set background=dark
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
-colorscheme elflord
+colorscheme monochrome
