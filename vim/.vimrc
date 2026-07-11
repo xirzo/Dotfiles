@@ -1,4 +1,3 @@
-
 set nocompatible
 
 filetype off
@@ -29,6 +28,8 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 " Code actions
 nnoremap <silent> <space>ca :LspCodeAction<CR>
+" Rename
+nmap <silent> <leader>rn <Plug>(lsp-rename)
 " Go to definition
 nmap <silent> gd <Plug>(lsp-definition)
 " Go back
@@ -65,7 +66,7 @@ set mouse=a
 set wrap
 set textwidth=79
 set formatoptions=tcqrn1
-set tabstop=4
+set tabstop=2
 set shiftwidth=4
 set softtabstop=4
 set expandtab
@@ -108,12 +109,11 @@ nnoremap <F1> :set invfullscreen<CR>
 vnoremap <F1> :set invfullscreen<CR>
 " Textmate holdouts
 
-" Set clang-format as the formatter for C/C++ files
-autocmd FileType c,cpp,objc setlocal formatprg=clang-format
+" Set clang-format as the expression for = and gq for C/C++ files
+autocmd FileType c,cpp,objc setlocal formatprg=clang-format\ -style=file equalprg=clang-format\ -style=file
 
 " Format with gq (normal mode) or gqap (format paragraph)
-" Or use this mapping:
-nnoremap <leader>f :normal! gggqG<CR>
+nnoremap <leader>f :normal! gg=G``<CR>
 
 " Formatting
 " map <leader>q gqip
