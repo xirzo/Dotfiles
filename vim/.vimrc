@@ -44,8 +44,7 @@ nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
 
 " Close current buffer
-nnoremap Q :bdelete<CR>
-
+nnoremap <silent> Q :let cb = bufnr('%') \| bnext \| if bufnr('%') == cb \| new \| endif \| execute 'bdelete' cb<CR>
 
 " Security
 set modelines=0
