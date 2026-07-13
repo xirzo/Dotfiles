@@ -9,6 +9,8 @@ Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'tpope/vim-commentary'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ap/vim-buftabline'
 call plug#end()
 
 syntax enable
@@ -44,6 +46,9 @@ endif
 set t_Co=256
 set background=dark
 colorscheme monochrome
+
+let g:buftabline_numbers = 1
+let g:buftabline_indicators = 1
 
 " ==============================================================================
 " SEARCHING
@@ -82,6 +87,13 @@ nnoremap <silent> <Tab> :bnext<CR>
 nnoremap <silent> <S-Tab> :bprevious<CR>
 
 nnoremap <silent> Q :let cb = bufnr('%') \| bnext \| if bufnr('%') == cb \| new \| endif \| execute 'bdelete' cb<CR>
+
+let g:ctrlp_prompt_mappings = {
+    \ 'PrtSelectMove("j")':   ['<s-tab>', '<c-j>', '<down>'],
+    \ 'PrtSelectMove("k")':   ['<tab>', '<c-k>', '<up>'],
+    \ 'ToggleFocus()':        [],
+    \ 'PrtExpandDir()':       [],
+    \ }
 
 " ==============================================================================
 " LSP & AUTOCOMPLETION
