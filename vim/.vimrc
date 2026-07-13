@@ -11,6 +11,7 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'tpope/vim-commentary'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ap/vim-buftabline'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 syntax enable
