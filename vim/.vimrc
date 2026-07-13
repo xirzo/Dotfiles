@@ -1,130 +1,103 @@
-set nocompatible
-
-filetype off
-syntax on
-filetype plugin indent on
-
-set clipboard=unnamedplus
-
-if has("gui_running")
-    set guifont=Iosevka\ Nerd\ Font\ 18
-endif
-
+" ==============================================================================
+" CORE / PLUGINS
+" ==============================================================================
 let mapleader = "\<Space>"
 
 call plug#begin()
-
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'tpope/vim-commentary'
-
 call plug#end()
 
-" Autocompletion movement
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
-" Code actions
-nnoremap <silent> <space>ca :LspCodeAction<CR>
-" Rename
-nmap <silent> <leader>rn <Plug>(lsp-rename)
-" Go to definition
-nmap <silent> gd <Plug>(lsp-definition)
-" Go back
-nmap <silent> <C-o> <C-o>
-" Find references
-nmap <silent> gr <Plug>(lsp-references)
-" Show documentation/hover information
-nnoremap <silent> K :LspHover<CR>
+syntax enable
+filetype plugin indent on
 
-" Cycle through buffers
-nnoremap <Tab> :bnext<CR>
-nnoremap <S-Tab> :bprevious<CR>
-
-" Close current buffer
-nnoremap <silent> Q :let cb = bufnr('%') \| bnext \| if bufnr('%') == cb \| new \| endif \| execute 'bdelete' cb<CR>
-
-" Security
-set modelines=0
-
-set relativenumber
-
-" Show file stats
-set ruler
-
-" Blink cursor on error instead of beeping (grr)
-set t_vb=
-
+" ==============================================================================
+" GENERAL SETTINGS
+" ==============================================================================
 set encoding=utf-8
-
+set clipboard=unnamedplus
 set mouse=a
-
-" Whitespace
-set wrap
-set textwidth=79
-set formatoptions=tcqrn1
-set tabstop=2
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-set noshiftround
-
-" Cursor motion
-set scrolloff=3
-set backspace=indent,eol,start
-set matchpairs+=<:> " use % to jump between pairs
-runtime! macros/matchit.vim
-
-" Move up/down editor lines
-nnoremap j gj
-nnoremap k gk
-" Allow hidden buffers
 set hidden
+set modelines=0
+set backspace=indent,eol,start
+set matchpairs+=<:>
+packadd! matchit
 
-" Rendering
-set ttyfast
-
-" Status bar
+" ==============================================================================
+" USER INTERFACE
+" ==============================================================================
+set relativenumber
+set ruler
 set laststatus=2
-
-" Last line
-set showmode
 set showcmd
+set scrolloff=3
+set t_vb=
+set listchars=tab:▸\ ,eol:¬
 
-" Searching
-" nnoremap / /\v
-" vnoremap / /\v
+if has("gui_running")
+    set guifont=Iosevka\ Nerd\ Font\ 18
+endif
+
+set t_Co=256
+set background=dark
+colorscheme monochrome
+
+" ==============================================================================
+" SEARCHING
+" ==============================================================================
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
 set showmatch
-map <leader><space> :let @/=''<cr> " clear search
-" Remap help key.
-inoremap <F1> <ESC>:set invfullscreen<CR>a
-nnoremap <F1> :set invfullscreen<CR>
-vnoremap <F1> :set invfullscreen<CR>
-" Textmate holdouts
 
-" Set clang-format as the expression for = and gq for C/C++ files
+nnoremap <silent> <leader><space> :let @/=''<CR>
+
+" ==============================================================================
+" WHITESPACE & FORMATTING
+" ==============================================================================
+set wrap
+set textwidth=79
+set formatoptions=tcqrn1
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set noshiftround
+
+" C/C++
+autocmd FileType c,cpp,objc setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab cindent
 autocmd FileType c,cpp,objc setlocal formatprg=clang-format\ -style=file equalprg=clang-format\ -style=file
 
-" Format with gq (normal mode) or gqap (format paragraph)
-nnoremap <leader>f :normal! gg=G``<CR>
+" ==============================================================================
+" GENERAL KEYBINDINGS
+" ==============================================================================
+nnoremap j gj
+nnoremap k gk
 
-" Formatting
-" map <leader>q gqip
-" Visualize tabs and newlines
-set listchars=tab:▸\ ,eol:¬
-" Uncomment this to enable by default:
-" set list " To enable by default
-" Or use your leader key + l to toggle on/off
-"  map <leader>l :set list!<CR> " Toggle tabs and EOL
-" Color scheme (terminal)
-set t_Co=256
-set background=dark
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-colorscheme monochrome
+nnoremap <silent> <Tab> :bnext<CR>
+nnoremap <silent> <S-Tab> :bprevious<CR>
+
+nnoremap <silent> Q :let cb = bufnr('%') \| bnext \| if bufnr('%') == cb \| new \| endif \| execute 'bdelete' cb<CR>
+
+" ==============================================================================
+" LSP & AUTOCOMPLETION
+" ==============================================================================
+" Autocomplete movement
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <CR>    pumvisible() ? "\<C-y>" : "\<CR>"
+
+" LSP Actions
+nnoremap <silent> <space>ca :LspCodeAction<CR>
+nnoremap <silent> <leader>rn <Plug>(lsp-rename)
+nnoremap <silent> gd         <Plug>(lsp-definition)
+nnoremap <silent> gr         <Plug>(lsp-references)
+nnoremap <silent> K          :LspHover<CR>
+
+" LSP Formatting (Normal and Visual modes)
+nnoremap <silent> <leader>f :LspDocumentFormat<CR>
+vnoremap <silent> <leader>f :LspDocumentRangeFormat<CR>
