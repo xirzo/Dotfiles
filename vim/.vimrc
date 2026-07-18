@@ -104,13 +104,26 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <CR>    pumvisible() ? "\<C-y>" : "\<CR>"
 
-" LSP Actions
-nnoremap <silent> <space>ca :LspCodeAction<CR>
-nnoremap <silent> <leader>rn <Plug>(lsp-rename)
-nnoremap <silent> gd         <Plug>(lsp-definition)
-nnoremap <silent> gr         <Plug>(lsp-references)
-nnoremap <silent> K          :LspHover<CR>
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    setlocal signcolumn=yes
+    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
 
-" LSP Formatting (Normal and Visual modes)
-nnoremap <silent> <leader>f :LspDocumentFormat<CR>
-vnoremap <silent> <leader>f :LspDocumentRangeFormat<CR>
+    nmap <buffer> <space>ca <plug>(lsp-code-action)
+    nmap <buffer> <leader>rn <plug>(lsp-rename)
+    nmap <buffer> gd         <plug>(lsp-definition)
+    nmap <buffer> gr         <plug>(lsp-references)
+    nmap <buffer> K          <plug>(lsp-hover)
+
+    nnoremap <buffer> <silent> <F2>   :LspNextError<CR>
+    nnoremap <buffer> <silent> <S-F2> :LspPreviousError<CR>
+
+    nmap <buffer> gs <plug>(lsp-document-symbol-search)
+    nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+
+    nnoremap <buffer> <silent> <leader>f :LspDocumentFormat<CR>
+    vnoremap <buffer> <silent> <leader>f :LspDocumentRangeFormat<CR>
+
+    nnoremap <buffer> <expr><c-f> lsp#scroll(+4)
+    nnoremap <buffer> <expr><c-d> lsp#scroll(-4)
+endfunction
