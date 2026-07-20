@@ -99,7 +99,7 @@ let g:ctrlp_prompt_mappings = {
 " ==============================================================================
 " LSP & AUTOCOMPLETION
 " ==============================================================================
-" Autocomplete movement
+
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <CR>    pumvisible() ? "\<C-y>" : "\<CR>"
@@ -113,17 +113,20 @@ function! s:on_lsp_buffer_enabled() abort
     nmap <buffer> <leader>rn <plug>(lsp-rename)
     nmap <buffer> gd         <plug>(lsp-definition)
     nmap <buffer> gr         <plug>(lsp-references)
-    nmap <buffer> K          <plug>(lsp-hover)
+    nmap <buffer> gs         <plug>(lsp-document-symbol-search)
+    nmap <buffer> gS         <plug>(lsp-workspace-symbol-search)
 
-    nnoremap <buffer> <silent> <F2>   :LspNextError<CR>
-    nnoremap <buffer> <silent> <S-F2> :LspPreviousError<CR>
-
-    nmap <buffer> gs <plug>(lsp-document-symbol-search)
-    nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
-
+    nnoremap <buffer> <silent> K        :LspHover<CR>
+    nnoremap <buffer> <silent> <F2>     :LspNextError<CR>
+    nnoremap <buffer> <silent> <S-F2>   :LspPreviousError<CR>
     nnoremap <buffer> <silent> <leader>f :LspDocumentFormat<CR>
     vnoremap <buffer> <silent> <leader>f :LspDocumentRangeFormat<CR>
 
-    nnoremap <buffer> <expr><c-f> lsp#scroll(+4)
-    nnoremap <buffer> <expr><c-d> lsp#scroll(-4)
+    nmap <buffer> <expr><c-f> lsp#scroll(+4)
+    nmap <buffer> <expr><c-d> lsp#scroll(-4)
 endfunction
+
+augroup lsp_install
+    au!
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
