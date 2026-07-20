@@ -1,5 +1,5 @@
 * {
-    font-family: FontAwesome, "Terminess Nerd Font Mono", Arial, sans-serif;
+    font-family: "Terminess Nerd Font Mono", FontAwesome, Arial, sans-serif;
     font-size: 16px;
     font-weight: bold;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
@@ -31,6 +31,7 @@ button:hover {
     padding: 0 6px;
     background-color: transparent;
     color: #ffffff;
+    font-size: 16px;
 }
 
 #workspaces button:hover {
@@ -65,10 +66,41 @@ button:hover {
 #power-profiles-daemon,
 #mpd,
 #language,
-#keyboard-state {
-    padding: 0 10px;
+#keyboard-state,
+#custom-power {
+    padding: 0 8px;
     background-color: transparent;
     color: #ffffff;
+    font-size: 16px;
+}
+
+#clock label,
+#battery label,
+#cpu label,
+#memory label,
+#disk label,
+#temperature label,
+#backlight label,
+#network label,
+#pulseaudio label,
+#wireplumber label,
+#custom-media label,
+#mode label,
+#idle_inhibitor label,
+#scratchpad label,
+#power-profiles-daemon label,
+#mpd label,
+#language label,
+#keyboard-state label,
+#custom-power label,
+#idle_inhibitor {
+    font-size: 21px;
+}
+
+#tray image,
+#wlr-taskbar image {
+    min-height: 20px;
+    min-width: 20px;
 }
 
 #window,
@@ -76,7 +108,6 @@ button:hover {
     margin: 0 4px;
 }
 
-/* Workspace edge margins */
 .modules-left > widget:first-child > #workspaces {
     margin-left: 0;
 }
