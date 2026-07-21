@@ -12,6 +12,7 @@ Plug 'tpope/vim-commentary'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ap/vim-buftabline'
 Plug 'jiangmiao/auto-pairs'
+Plug 'p0209p/naysayer.vim'
 call plug#end()
 
 syntax enable
@@ -46,7 +47,7 @@ endif
 
 set t_Co=256
 set background=dark
-colorscheme monochrome
+colorscheme naysayer
 
 let g:buftabline_numbers = 1
 let g:buftabline_indicators = 1
