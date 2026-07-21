@@ -22,7 +22,6 @@ exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 exec nm-applet
-exec waybar
 
 exec_always gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 exec_always gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'

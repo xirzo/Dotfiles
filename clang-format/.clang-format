@@ -10,7 +10,7 @@ AllowAllParametersOfDeclarationOnNextLine: false
 AllowShortBlocksOnASingleLine: Empty
 AllowShortCaseLabelsOnASingleLine: false
 AllowShortFunctionsOnASingleLine: Inline
-AllowShortIfStatementsOnASingleLine: Never  # To avoid conflict, set this "Never" and each "if statement" should include brace when coding
+AllowShortIfStatementsOnASingleLine: WithoutElse # To avoid conflict, set this "Never" and each "if statement" should include brace when coding
 AllowShortLambdasOnASingleLine: Inline
 AllowShortLoopsOnASingleLine: false
 AlwaysBreakAfterReturnType: None
@@ -42,7 +42,7 @@ ColumnLimit: 80
 CompactNamespaces: false
 ContinuationIndentWidth: 4
 Cpp11BracedListStyle: true
-DerivePointerAlignment: false  # Make sure the * or & align on the left
+DerivePointerAlignment: false # Make sure the * or & align on the left
 EmptyLineBeforeAccessModifier: LogicalBlock
 FixNamespaceComments: true
 IncludeBlocks: Preserve
@@ -54,7 +54,7 @@ MaxEmptyLinesToKeep: 1
 NamespaceIndentation: None
 ObjCSpaceAfterProperty: false
 ObjCSpaceBeforeProtocolList: true
-PointerAlignment: Left
+PointerAlignment: Right
 ReflowComments: false
 # SeparateDefinitionBlocks: Always   # Only support since clang-format 14
 SpaceAfterCStyleCast: false
