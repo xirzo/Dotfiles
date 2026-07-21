@@ -131,3 +131,35 @@ augroup lsp_install
     au!
     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
+
+" ==============================================================================
+" FIXING NAYSAYER COLORSCHEME
+" ==============================================================================
+
+function! s:fix_naysayer_diagnostics() abort
+    hi DiagnosticError           guifg=#ff6b6b guibg=#122a2e gui=bold
+    hi DiagnosticUnderlineError  guifg=#ff6b6b guibg=#122a2e guisp=#ff6b6b gui=underline
+    
+    hi DiagnosticWarn            guifg=#f0c674 guibg=#122a2e
+    hi DiagnosticUnderlineWarn   guifg=#f0c674 guibg=#122a2e guisp=#f0c674 gui=underline
+    
+    hi DiagnosticHint            guifg=#e5c07b guibg=#062329
+    hi DiagnosticUnderlineHint   guifg=#e5c07b guisp=#e5c07b gui=underline
+
+    hi LspErrorHighlight         guifg=#ff6b6b guibg=#122a2e gui=underline
+    hi LspWarningHighlight       guifg=#f0c674 guibg=#122a2e gui=underline
+    hi LspInformationHighlight   guifg=#8cde94 guibg=#062329 gui=underline
+    hi LspHintHighlight          guifg=#e5c07b guibg=#062329 gui=underline
+
+    hi LspErrorText              guifg=#ff6b6b guibg=#062329 gui=bold
+    hi LspWarningText            guifg=#f0c674 guibg=#062329
+    hi LspInfoText               guifg=#8cde94 guibg=#062329
+    hi LspHintText               guifg=#e5c07b guibg=#062329
+endfunction
+
+augroup NaysayerLspFix
+    autocmd!
+    autocmd ColorScheme naysayer call s:fix_naysayer_diagnostics()
+augroup END
+
+call s:fix_naysayer_diagnostics()
