@@ -163,3 +163,8 @@ augroup NaysayerLspFix
 augroup END
 
 call s:fix_naysayer_diagnostics()
+
+augroup FixCCurlyBraces
+    autocmd!
+    autocmd FileType c,cpp hi link cErrInParen Delimiter
+augroup END
