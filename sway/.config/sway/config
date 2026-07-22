@@ -66,6 +66,8 @@ bindsym $mod+b exec $bluetooth
 
 floating_modifier $mod normal
 
+bindsym $mod+p exec hyprpicker -a -f hex
+
 bindsym $mod+Shift+r reload
 
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
