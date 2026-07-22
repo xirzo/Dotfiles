@@ -13,6 +13,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ap/vim-buftabline'
 Plug 'jiangmiao/auto-pairs'
 Plug 'xirzo/naysayer.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 syntax enable
@@ -49,7 +51,7 @@ set t_Co=256
 set background=dark
 colorscheme naysayer
 
-let g:buftabline_numbers = 1
+let g:buftabline_numbers = 2
 let g:buftabline_indicators = 1
 
 " ==============================================================================
@@ -131,3 +133,38 @@ augroup lsp_install
     au!
     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
+
+" ==============================================================================
+" TAB JUMPING
+" ==============================================================================
+nmap <leader>1 <Plug>BufTabLine.Go(1)
+nmap <leader>2 <Plug>BufTabLine.Go(2)
+nmap <leader>3 <Plug>BufTabLine.Go(3)
+nmap <leader>4 <Plug>BufTabLine.Go(4)
+nmap <leader>5 <Plug>BufTabLine.Go(5)
+nmap <leader>6 <Plug>BufTabLine.Go(6)
+nmap <leader>7 <Plug>BufTabLine.Go(7)
+nmap <leader>8 <Plug>BufTabLine.Go(8)
+nmap <leader>9 <Plug>BufTabLine.Go(9)
+nmap <leader>0 <Plug>BufTabLine.Go(10)
+
+" ==============================================================================
+" LIVE GREP
+" ==============================================================================
+nnoremap <silent> <leader>/ :Rg<CR>
+
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
+
+function! s:live_grep(query, bang)
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+
+  let $FZF_DEFAULT_OPTS = '--bind "tab:up,btab:down"'
+  
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:bang)
+endfunction
+
+command! -nargs=* -bang Rg call s:live_grep(<q-args>, <bang>0)
