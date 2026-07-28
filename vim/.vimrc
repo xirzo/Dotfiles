@@ -15,6 +15,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'xirzo/naysayer.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'xirzo/gruber-darker.vim'
 call plug#end()
 
 syntax enable
@@ -49,7 +50,7 @@ endif
 
 set t_Co=256
 set background=dark
-colorscheme naysayer
+colorscheme gruber-darker
 
 let g:buftabline_numbers = 2
 let g:buftabline_indicators = 1
