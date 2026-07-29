@@ -32,7 +32,8 @@ output HDMI-A-1 resolution 2560x1440 position 0,0 transform 270
 output DP-2 resolution 1920x1080 position 1440,740
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
-font pango:"Terminess Nerd Font Mono" 12
+# font pango:JetBrainsMono Nerd Font 12
+font pango:JetBrains Mono 11
 
 ### Idle configuration
 #
@@ -184,7 +185,9 @@ bindsym --to-code --locked XF86AudioStop exec playerctl stop
 bindsym --to-code --locked XF86MonBrightnessDown exec brightnessctl s 5%-
 bindsym --to-code --locked XF86MonBrightnessUp exec brightnessctl s +5%
 
-bindsym --to-code $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy -t image/png
+bindsym --to-code $mod+Shift+s exec grim -g "$(slurp -o)" - | wl-copy -t image/png
+
+bindsym --to-code Print exec grim -o "$(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')" - | wl-copy -t image/png
 
 bar {
     swaybar_command waybar
