@@ -16,6 +16,7 @@ Plug 'xirzo/naysayer.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'xirzo/gruber-darker.vim'
+Plug 'ap/vim-css-color'
 call plug#end()
 
 syntax enable
@@ -24,6 +25,7 @@ filetype plugin indent on
 " ==============================================================================
 " GENERAL SETTINGS
 " ==============================================================================
+set termguicolors
 set encoding=utf-8
 set clipboard=unnamedplus
 set mouse=a
@@ -50,7 +52,7 @@ endif
 
 set t_Co=256
 set background=dark
-colorscheme gruber-darker
+colorscheme naysayer
 
 let g:buftabline_numbers = 2
 let g:buftabline_indicators = 1
@@ -157,7 +159,8 @@ nnoremap <silent> <leader>/ :Rg<CR>
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
 
 function! s:live_grep(query, bang)
-  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+  " let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+  let command_fmt = 'rg --line-number --color=always --smart-case -- %s || true'
   let initial_command = printf(command_fmt, shellescape(a:query))
   let reload_command = printf(command_fmt, '{q}')
   
@@ -168,7 +171,7 @@ function! s:live_grep(query, bang)
   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:bang)
 endfunction
 
-command! -nargs=* -bang Rg call s:live_grep(<q-args>, <bang>0)
+" command! -nargs=* -bang Rg call s:live_grep(<q-args>, <bang>0)
 
 " ==============================================================================
 " VIM DEVELOPMENT KEYBINDINGS

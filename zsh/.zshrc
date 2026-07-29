@@ -16,7 +16,7 @@ export CC=/usr/bin/gcc
 export CXX=/usr/bin/g++
 export MANPAGER="less"
 export EDITOR=vim
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+export LD_LIBRARY_PATH="/opt/Odin/vendor/raylib/linux:$LD_LIBRARY_PATH:/usr/local/lib"
 
 # delete directory paths word-by-word
 backward-kill-dir () {
@@ -49,3 +49,5 @@ export PATH="$PATH:/home/xir/.local/bin"
 
 # opencode
 export PATH=/home/xir/.opencode/bin:$PATH
+export PATH="/opt/Odin:$PATH"
+export ODIN_ROOT="/opt/Odin"
