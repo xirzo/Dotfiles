@@ -1,7 +1,7 @@
 // -*- mode: jsonc -*-
 {
     // "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
+     "position": "bottom",
     "height": 30,
     "spacing": 4, // Gaps between modules (4px)
     "modules-left": [
@@ -11,26 +11,26 @@
         "wlr/taskbar",
         "custom/media"
     ],
-    "modules-center": [
-        "sway/window"
-    ],
+    // "modules-center": [
+    //     "sway/window"
+    // ],
     "modules-right": [
-        "mpd",
-        "idle_inhibitor",
+        // "mpd",
+        // "idle_inhibitor",
         "pulseaudio",
-        "network",
+        // "network",
         "power-profiles-daemon",
-        "cpu",
-        "memory",
-        "temperature",
-        "backlight",
+        // "cpu",
+        // "memory",
+        // "temperature",
+        // "backlight",
         "keyboard-state",
         "sway/language",
-        "battery",
-        "battery#bat2",
-        "clock",
+        // "battery",
+        // "battery#bat2",
         "tray",
-        "custom/power"
+        "clock"
+        // "custom/power"
     ],
     "sway/workspaces": {
         "disable-scroll": true,

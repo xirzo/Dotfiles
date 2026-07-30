@@ -26,7 +26,7 @@ exec nm-applet
 exec_always gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 exec_always gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 
-output * bg ~/.dotfiles/wallpapers/gloomy_beach.jpg fill
+output * bg ~/.dotfiles/wallpapers/windows_xp.jpg fill
 
 output HDMI-A-1 resolution 2560x1440 position 0,0 transform 270
 output DP-2 resolution 1920x1080 position 1440,740
