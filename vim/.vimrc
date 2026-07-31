@@ -90,6 +90,12 @@ autocmd FileType c,cpp,objc setlocal formatprg=clang-format\ -style=file equalpr
 nnoremap j gj
 nnoremap k gk
 
+vnoremap ( <esc>`>a)<esc>`<i(<esc>
+vnoremap { <esc>`>a}<esc>`<i{<esc>
+
+vnoremap " <esc>`>a"<esc>`<i"<esc>
+vnoremap ' <esc>`>a'<esc>`<i'<esc>
+
 nnoremap <silent> <Tab> :bnext<CR>
 nnoremap <silent> <S-Tab> :bprevious<CR>
 
@@ -171,7 +177,7 @@ function! s:live_grep(query, bang)
   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:bang)
 endfunction
 
-" command! -nargs=* -bang Rg call s:live_grep(<q-args>, <bang>0)
+command! -nargs=* -bang Rg call s:live_grep(<q-args>, <bang>0)
 
 " ==============================================================================
 " VIM DEVELOPMENT KEYBINDINGS
