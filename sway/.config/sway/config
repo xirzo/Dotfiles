@@ -85,6 +85,8 @@ bindsym --to-code $mod+Down focus down
 bindsym --to-code $mod+Up focus up
 bindsym --to-code $mod+Right focus right
 
+bindsym --to-code $mod+F7 exec obs-cmd recording toggle
+
 bindsym --to-code $mod+Shift+$left move left
 bindsym --to-code $mod+Shift+$down move down
 bindsym --to-code $mod+Shift+$up move up
