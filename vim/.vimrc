@@ -48,7 +48,7 @@ set listchars=tab:▸\ ,eol:¬
 
 if has("gui_running")
     colorscheme torte
-    set guifont=Iosevka\ Nerd\ Font\ 18
+    set guifont=Iosevka\ Nerd\ Font\ 13
     " set lines=49 columns=96
 endif
 
