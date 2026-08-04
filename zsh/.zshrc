@@ -47,6 +47,8 @@ export NVM_DIR="$HOME/.nvm"
 # Created by `pipx` on 2026-07-21 22:22:56
 export PATH="$PATH:/home/xir/.local/bin"
 
+export PATH="$PATH:/home/xir/.cargo/bin"
+
 # opencode
 export PATH=/home/xir/.opencode/bin:$PATH
 export PATH="/opt/Odin:$PATH"

@@ -52,7 +52,8 @@ endif
 
 set t_Co=256
 set background=dark
-colorscheme naysayer
+" colorscheme naysayer
+colorscheme gruber-darker
 
 let g:buftabline_numbers = 2
 let g:buftabline_indicators = 1
@@ -178,6 +179,8 @@ function! s:live_grep(query, bang)
 endfunction
 
 command! -nargs=* -bang Rg call s:live_grep(<q-args>, <bang>0)
+
+command! -nargs=0 W write
 
 " ==============================================================================
 " VIM DEVELOPMENT KEYBINDINGS
