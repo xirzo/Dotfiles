@@ -17,6 +17,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'xirzo/gruber-darker.vim'
 Plug 'ap/vim-css-color'
+Plug 'markonm/traces.vim'
 call plug#end()
 
 syntax enable
