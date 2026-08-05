@@ -19,6 +19,7 @@ Plug 'xirzo/gruber-darker.vim'
 Plug 'ap/vim-css-color'
 Plug 'markonm/traces.vim'
 Plug 'tpope/vim-dispatch'
+Plug 'embear/vim-localvimrc'
 call plug#end()
 
 syntax enable
@@ -28,6 +29,7 @@ filetype plugin indent on
 " GENERAL SETTINGS
 " ==============================================================================
 set termguicolors
+let g:localvimrc_persistent = 1
 set encoding=utf-8
 set clipboard=unnamedplus
 set mouse=a
