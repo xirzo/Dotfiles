@@ -18,6 +18,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'xirzo/gruber-darker.vim'
 Plug 'ap/vim-css-color'
 Plug 'markonm/traces.vim'
+Plug 'tpope/vim-dispatch'
 call plug#end()
 
 syntax enable
@@ -201,3 +202,13 @@ function! SynStack ()
 endfunction
 
 nnoremap <F3> :call SynStack()<CR>
+
+" ==============================================================================
+" VIM DISPATCH
+" ==============================================================================
+
+nnoremap <F5> :Make<CR>
+
+nnoremap <F6> :Dispatch<CR>
+
+nnoremap <F7> :Copen<CR>
