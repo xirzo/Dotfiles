@@ -7,7 +7,7 @@ set $up k
 set $right l
 set $term alacritty
 set $menu wmenu-run
-set $file_manager nautilus
+set $file_manager dolphin
 set $bluetooth blueman-manager
 
 set $first_monitor DP-2

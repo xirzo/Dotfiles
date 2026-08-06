@@ -4,6 +4,7 @@ HYPHEN_INSENSITIVE="true"
 setopt SHARE_HISTORY
 setopt INC_APPEND_HISTORY
 setopt EXTENDED_HISTORY   
+export HISTFILE=$HOME/.config/zsh/.zsh_history
 
 alias g='git'
 alias lg='lazygit'
@@ -36,8 +37,8 @@ bindkey "^[[1;5C" forward-word
 unsetopt pathdirs
 zstyle ':completion:*' menu select
 
-# oh-my-zsh
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="$HOME/.config/oh-my-zsh" # makes sure that oh-my-zsh is installed in the right place
+export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 ZSH_THEME="robbyrussell"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh

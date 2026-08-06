@@ -3,9 +3,13 @@
 **eaf/
 **.swp
 
+
 **/plugged/
 
 # -*- mode: gitignore; -*-
+
+**/.zcompdump*
+**/.zsh_history
 *~
 \#*\#
 /.emacs.desktop
