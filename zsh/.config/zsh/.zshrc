@@ -58,3 +58,4 @@ export PATH="/opt/Odin:$PATH"
 export ODIN_ROOT="/opt/Odin"
 export LD_LIBRARY_PATH="/opt/Odin/vendor/raylib/linux:$LD_LIBRARY_PATH"
 
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc 
