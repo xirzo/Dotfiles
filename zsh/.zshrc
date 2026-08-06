@@ -10,6 +10,7 @@ alias lg='lazygit'
 alias v='vim'
 alias nix-shell='nix-shell --run zsh'
 alias gvim='GTK_THEME=Adwaita:dark gvim'
+alias tldr='tldr --short-options'
 
 plugins=(git)
 
