@@ -6,6 +6,11 @@ setopt INC_APPEND_HISTORY
 setopt EXTENDED_HISTORY   
 export HISTFILE=$HOME/.config/zsh/.zsh_history
 
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_STATE_HOME="$HOME/.local/state"
+
 alias g='git'
 alias lg='lazygit'
 alias v='vim'
