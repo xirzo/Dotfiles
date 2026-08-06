@@ -55,3 +55,6 @@ export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export PATH="$XDG_DATA_HOME/cargo/bin:$PATH"
 
 export PATH="/opt/Odin:$PATH"
+export ODIN_ROOT="/opt/Odin"
+export LD_LIBRARY_PATH="/opt/Odin/vendor/raylib/linux:$LD_LIBRARY_PATH"
+
