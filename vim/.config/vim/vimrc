@@ -9,7 +9,6 @@ Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'tpope/vim-commentary'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ap/vim-buftabline'
 Plug 'jiangmiao/auto-pairs'
 Plug 'xirzo/naysayer.vim'
@@ -99,8 +98,8 @@ set expandtab
 set noshiftround
 
 " C/C++
-autocmd FileType c,cpp,objc setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab cindent
-autocmd FileType c,cpp,objc setlocal formatprg=clang-format\ -style=file equalprg=clang-format\ -style=file
+" autocmd FileType c,cpp,objc setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab cindent
+" autocmd FileType c,cpp,objc setlocal formatprg=clang-format\ -style=file equalprg=clang-format\ -style=file
 
 " ==============================================================================
 " GENERAL KEYBINDINGS
@@ -119,13 +118,6 @@ nnoremap <silent> <Tab> :bnext<CR>
 nnoremap <silent> <S-Tab> :bprevious<CR>
 
 nnoremap <silent> Q :let cb = bufnr('%') \| bnext \| if bufnr('%') == cb \| new \| endif \| execute 'bdelete' cb<CR>
-
-let g:ctrlp_prompt_mappings = {
-    \ 'PrtSelectMove("j")':   ['<s-tab>', '<c-j>', '<down>'],
-    \ 'PrtSelectMove("k")':   ['<tab>', '<c-k>', '<up>'],
-    \ 'ToggleFocus()':        [],
-    \ 'PrtExpandDir()':       [],
-    \ }
 
 " ==============================================================================
 " LSP & AUTOCOMPLETION
@@ -180,18 +172,17 @@ nmap <leader>0 <Plug>BufTabLine.Go(10)
 " LIVE GREP
 " ==============================================================================
 nnoremap <silent> <leader>/ :Rg<CR>
+nnoremap <C-p> :Files<CR>
 
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
+let $FZF_DEFAULT_OPTS = '--bind "tab:up,btab:down"'
 
 function! s:live_grep(query, bang)
-  " let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
   let command_fmt = 'rg --line-number --color=always --smart-case -- %s || true'
   let initial_command = printf(command_fmt, shellescape(a:query))
   let reload_command = printf(command_fmt, '{q}')
   
   let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-
-  let $FZF_DEFAULT_OPTS = '--bind "tab:up,btab:down"'
   
   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:bang)
 endfunction
