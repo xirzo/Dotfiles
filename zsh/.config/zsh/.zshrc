@@ -6,6 +6,8 @@ setopt INC_APPEND_HISTORY
 setopt EXTENDED_HISTORY   
 export HISTFILE=$HOME/.config/zsh/.zsh_history
 
+export PATH="$HOME/.dotfiles/bin:$PATH"
+
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -59,3 +61,7 @@ export ODIN_ROOT="/opt/Odin"
 export LD_LIBRARY_PATH="/opt/Odin/vendor/raylib/linux:$LD_LIBRARY_PATH"
 
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc 
+
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="/usr/local/go/bin:$PATH"
+export PATH="$(go env GOPATH)/bin:$PATH"

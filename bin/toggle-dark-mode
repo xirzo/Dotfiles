@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Original file: https://github.com/5long/dotfiles/blob/trunk/bin/toggle-dark-mode
+
+set -euo pipefail
+
+function main() {
+  current_color="$(gsettings get org.gnome.desktop.interface color-scheme)"
+  if [[ "$current_color" = "'prefer-dark'" ]]; then
+    light_mode
+  else
+    dark_mode
+  fi
+}
+
+function light_mode() {
+  gsettings set org.gnome.desktop.interface color-scheme prefer-light
+  gsettings set org.gnome.desktop.interface gtk-theme Adwaita
+}
+
+function dark_mode() {
+  gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+  gsettings set org.gnome.desktop.interface gtk-theme Adwaita-Dark
+}
+
+if [[ "$0" = "$BASH_SOURCE" ]]; then
+  main
+fi
