@@ -1,13 +1,13 @@
+<p align="center">
+<img width="1920" height="1080" alt="pic" src="https://github.com/user-attachments/assets/879efdd2-4777-4291-8470-11b93b6625d3" />
+</p>
 
 ## Installation
-
-> [!NOTE]
-> You may need to install some additional programs during installation
 
 Install *GNU stow*
 
 ```sh
-sudo pacman -S stow
+sudo dns install stow
 ```
 
 then *stow* the directories of configurations you want to use:
@@ -22,14 +22,11 @@ if you wish to unlink the configuration, use:
 stow -D <DIR_NAME>
 ```
 
+## XDG oh-my-zsh
+
+dotfiles use XDG paths, so one is set for *oh-my-zsh*, do `stow zsh` before installing it!
+
 ### Setup Scripts
-
-automatic icons/emojis/chinese symbols fonts installer:
-
-```sh
-./scripts/install_additional_fonts.sh
-
-```
 
 vim building and installation
 
