@@ -19,6 +19,7 @@ Plug 'ap/vim-css-color'
 Plug 'markonm/traces.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'embear/vim-localvimrc'
+Plug 'catppuccin/vim', { 'as': 'catppuccin', 'branch': 'main' }
 call plug#end()
 
 syntax enable
@@ -69,7 +70,8 @@ endif
 set t_Co=256
 set background=dark
 " colorscheme naysayer
-colorscheme gruber-darker
+" colorscheme gruber-darker
+colorscheme catppuccin_mocha
 
 let g:buftabline_numbers = 2
 let g:buftabline_indicators = 1
