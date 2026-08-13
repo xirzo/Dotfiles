@@ -13,6 +13,8 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_STATE_HOME="$HOME/.local/state"
 
+export GIT_CONFIG_GLOBAL="${XDG_CONFIG_HOME}/git/config" 
+
 alias g='git'
 alias lg='lazygit'
 alias v='vim'
@@ -24,7 +26,7 @@ plugins=(git)
 
 export CC=/usr/bin/gcc
 export CXX=/usr/bin/g++
-export MANPAGER="less"
+export MANPAGER=vim
 export EDITOR=vim
 
 # delete directory paths word-by-word
