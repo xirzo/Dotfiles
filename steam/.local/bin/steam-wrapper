@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+FAKE_HOME="$HOME/.local/share/steam-home"
+
+mkdir -p "$FAKE_HOME"
+
+export HOME="$FAKE_HOME"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_STATE_HOME="$HOME/.local/state"
+
+exec /usr/bin/steam "$@" 

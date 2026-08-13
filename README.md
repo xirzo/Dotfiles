@@ -12,6 +12,9 @@ sudo dns install stow
 
 then *stow* the directories of configurations you want to use:
 
+> [!WARN]
+> After doing `stow steam`, do an `update-desktop-database ~/.local/share/applications`
+
 ```sh
 stow <DIR_NAME>
 ```
@@ -33,4 +36,5 @@ vim building and installation
 ```sh
 ./scripts/build_and_install_vim.sh
 ```
+
 

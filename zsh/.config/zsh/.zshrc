@@ -7,6 +7,7 @@ setopt EXTENDED_HISTORY
 export HISTFILE=$HOME/.config/zsh/.zsh_history
 
 export PATH="$HOME/.dotfiles/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
