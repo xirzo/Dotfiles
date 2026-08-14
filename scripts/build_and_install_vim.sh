@@ -7,21 +7,30 @@ red="\033[0;31m"
 nocolor="\033[0m"
 
 info() {
-    echo -e "${blue} $1 ${nocolor}"
+    echo -e "${blue}$1${nocolor}"
 }
 
 panic() {
-    echo -e "${red} $1 ${nocolor}"
+    echo -e "${red}$1${nocolor}"
     exit 1
 }
 
-declare -a packages=(
+declare -a arch_packages=(
     "base-devel"
     "git"
     "wayland"
     "wayland-protocols"
     "gtk3"
     "python"
+)
+
+declare -a fedora_packages=(
+    "git"
+    "wayland-devel"
+    "wayland-protocols-devel"
+    "gtk3-devel"
+    "python3"
+    "python3-devel"
 )
 
 vim_repository="https://github.com/vim/vim.git"
@@ -41,8 +50,12 @@ fi
 
 info "Installing needed packages..."
 
-if ! sudo pacman -S --needed --noconfirm "${packages[@]}"; then
-    panic "Pacman failed to install packages. Check your internet connection or if another package manager is running."
+if command -v pacman &>/dev/null; then
+    sudo pacman -S --needed --noconfirm "${fedora_packages[@]}" || panic "Pacman installation failed."
+elif command -v dnf &>/dev/null; then
+    sudo dnf install -y "${fedora_packages[@]}" || panic "DNF installation failed."
+else
+    panic "No supported package manager found (pacman or dnf)."
 fi
 
 info "Cloning $vim_repository into $repository_target_path..."
@@ -61,7 +74,7 @@ info "Configuring Vim..."
     --enable-python3interp=yes \
     --enable-gui=gtk3
 
-info "Building with $nproc cores..."
+info "Building..."
 
 if ! make -j$(nproc) &> /dev/null; then
     panic "Failed to build the source code"
