@@ -51,9 +51,10 @@ local fileManager = "dolphin"
 -- Or execute your favorite apps at launch like this:
 --
 hl.on("hyprland.start", function () 
+   hl.exec_cmd("~/.config/hypr/start-portal.sh")
    hl.exec_cmd("noctalia")
---   hl.exec_cmd("nm-applet")
---   hl.exec_cmd("waybar & hyprpaper & firefox")
+-- hl.exec_cmd("nm-applet")
+-- hl.exec_cmd("waybar & hyprpaper & firefox")
 end)
 
 
@@ -66,6 +67,13 @@ end)
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 
+hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
+hl.env("XDG_SESSION_TYPE", "wayland")
+hl.env("XDG_SESSION_DESKTOP", "Hyprland")
+hl.env("QT_QPA_PLATFORM", "wayland;xcb")
+hl.env("ELECTRON_OZONE_PLATFORM_HINT", "wayland")
+
+hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 
 -----------------------
 ----- PERMISSIONS -----
@@ -400,3 +408,11 @@ hl.window_rule({
     move  = "20 monitor_h-120",
     float = true,
 })
+
+hl.window_rule({
+    name = "start-wow-floating",
+    match = { title = "World of Warcraft" },
+    float = true,
+})
+
+-- getting class: 'hyprctl clients | grep Window'
