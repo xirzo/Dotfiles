@@ -31,13 +31,37 @@ filetype plugin indent on
 set termguicolors
 let g:localvimrc_persistent = 1
 set encoding=utf-8
-set clipboard=unnamedplus
 set mouse=a
 set hidden
 set modelines=0
 set backspace=indent,eol,start
 set matchpairs+=<:>
 packadd! matchit
+
+" ==============================================================================
+" Clipboard
+" ==============================================================================
+
+" set clipboard=unnamedplus
+
+nnoremap <leader>y "+y      " Yank to system clipboard
+xnoremap <leader>y "+y      " Yank selection to system clipboard
+nnoremap <leader>Y "+Y      " Yank entire line to system clipboard
+xnoremap <leader>Y "+Y      " Yank entire lines to system clipboard
+nnoremap <leader>p "+p      " Paste from system clipboard
+xnoremap <leader>p "+p      " Paste from system clipboard (overwrites selection)
+nnoremap <leader>P "+P      " Paste before cursor from system clipboard
+xnoremap <leader>P "+P      " Paste before cursor from system clipboard (overwrites selection)
+
+" feedback
+nnoremap <leader>y "+y :echo "Yanked to system clipboard"<CR>
+xnoremap <leader>y "+y :echo "Yanked selection to system clipboard"<CR>
+nnoremap <leader>Y "+Y :echo "Yanked line to system clipboard"<CR>
+xnoremap <leader>Y "+Y :echo "Yanked lines to system clipboard"<CR>
+nnoremap <leader>p "+p :echo "Pasted from system clipboard"<CR>
+xnoremap <leader>p "+p :echo "Pasted from system clipboard"<CR>
+nnoremap <leader>P "+P :echo "Pasted before cursor from system clipboard"<CR>
+xnoremap <leader>P "+P :echo "Pasted before cursor from system clipboard"<CR>
 
 " ==============================================================================
 " XDG
