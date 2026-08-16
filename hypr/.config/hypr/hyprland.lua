@@ -416,3 +416,6 @@ hl.window_rule({
 })
 
 -- getting class: 'hyprctl clients | grep Window'
+
+-- For Noctalia Color templates
+require("noctalia").apply_theme()
