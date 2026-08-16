@@ -6,9 +6,6 @@ setopt INC_APPEND_HISTORY
 setopt EXTENDED_HISTORY   
 export HISTFILE=$HOME/.config/zsh/.zsh_history
 
-export PATH="$HOME/.dotfiles/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -16,6 +13,10 @@ export XDG_STATE_HOME="$HOME/.local/state"
 
 export GIT_CONFIG_GLOBAL="${XDG_CONFIG_HOME}/git/config" 
 
+export PATH="$HOME/.dotfiles/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+alias cdsteamhome="$XDG_DATA_HOME/steam-home"
 alias g='git'
 alias lg='lazygit'
 alias v='vim'
@@ -23,11 +24,9 @@ alias nix-shell='nix-shell --run zsh'
 alias gvim='GTK_THEME=Adwaita:dark gvim'
 alias tldr='tldr --short-options'
 
-plugins=(git)
-
 export CC=/usr/bin/gcc
 export CXX=/usr/bin/g++
-export MANPAGER=vim
+export MANPAGER=less
 export EDITOR=vim
 
 # delete directory paths word-by-word
@@ -52,19 +51,27 @@ ZSH_THEME="robbyrussell"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
+# js stuff
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc 
 
+# rust
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export PATH="$XDG_DATA_HOME/cargo/bin:$PATH"
 
+# odin
 export PATH="/opt/Odin:$PATH"
 export ODIN_ROOT="/opt/Odin"
 export LD_LIBRARY_PATH="/opt/Odin/vendor/raylib/linux:$LD_LIBRARY_PATH"
 
-export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc 
-
+# golang
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
 export PATH="$(go env GOPATH)/bin:$PATH"
+
+# dotnet
+export DOTNET_ROOT="$XDG_DATA_HOME/dotnet"
+export PATH="$XDG_DATA_HOME/dotnet:$PATH"
