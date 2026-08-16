@@ -1,6 +1,13 @@
+
+<p align="center">
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/758f9a9b-cfac-43eb-b82b-3c89cff4ee77" />
+</p>
+
+
 <p align="center">
 <img width="1920" height="1080" alt="pic" src="https://github.com/user-attachments/assets/879efdd2-4777-4291-8470-11b93b6625d3" />
 </p>
+
 
 ## Installation
 
