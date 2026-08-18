@@ -124,8 +124,8 @@ set expandtab
 set noshiftround
 
 " C/C++
-" autocmd FileType c,cpp,objc setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab cindent
-" autocmd FileType c,cpp,objc setlocal formatprg=clang-format\ -style=file equalprg=clang-format\ -style=file
+autocmd FileType c,cpp,objc setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab cindent
+autocmd FileType c,cpp,objc setlocal formatprg=clang-format\ -style=file equalprg=clang-format\ -style=file
 
 " ==============================================================================
 " GENERAL KEYBINDINGS
