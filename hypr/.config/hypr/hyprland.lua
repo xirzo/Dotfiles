@@ -54,6 +54,7 @@ hl.on("hyprland.start", function ()
    hl.exec_cmd("~/.config/hypr/start-portal.sh")
    hl.exec_cmd("noctalia")
    hl.exec_cmd("nm-applet")
+   hl.exec_cmd("AmneziaVPN")
 -- hl.exec_cmd("waybar & hyprpaper & firefox")
 end)
 
@@ -310,6 +311,8 @@ hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.resize({ x = resizeUnit, y 
 hl.bind(mainMod .. " + SHIFT + left", hl.dsp.window.resize({ x = -resizeUnit, y = 0, relative=true }), { repeating = true })
 hl.bind(mainMod .. " + SHIFT + up", hl.dsp.window.resize({ x = 0, y = -resizeUnit, relative=true }), { repeating = true })
 hl.bind(mainMod .. " + SHIFT + down", hl.dsp.window.resize({ x = 0, y = resizeUnit, relative=true }), { repeating = true })
+
+hl.bind("ALT + F7", hl.dsp.exec_cmd("obs-cmd recording toggle"))
 
 for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0
