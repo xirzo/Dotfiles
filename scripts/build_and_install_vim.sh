@@ -51,7 +51,7 @@ fi
 info "Installing needed packages..."
 
 if command -v pacman &>/dev/null; then
-    sudo pacman -S --needed --noconfirm "${fedora_packages[@]}" || panic "Pacman installation failed."
+    sudo pacman -S --needed --noconfirm "${arch_packages[@]}" || panic "Pacman installation failed."
 elif command -v dnf &>/dev/null; then
     sudo dnf install -y "${fedora_packages[@]}" || panic "DNF installation failed."
 else
