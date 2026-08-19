@@ -16,8 +16,12 @@ export GIT_CONFIG_GLOBAL="${XDG_CONFIG_HOME}/git/config"
 export PATH="$HOME/.dotfiles/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
+alias sps="sudo pacman -S "
+alias sprns="sudo pacman -Rns "
 alias cdsteamhome="$XDG_DATA_HOME/steam-home"
 alias g='git'
+alias t='tmux'
+alias ta='tmux a'
 alias lg='lazygit'
 alias v='vim'
 alias nix-shell='nix-shell --run zsh'
