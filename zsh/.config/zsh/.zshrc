@@ -30,7 +30,8 @@ alias tldr='tldr --short-options'
 
 export CC=/usr/bin/gcc
 export CXX=/usr/bin/g++
-export MANPAGER=less
+# export MANPAGER=less
+export MANPAGER="vim -M +MANPAGER -c 'map q :q<CR>' -"
 export EDITOR=vim
 
 # delete directory paths word-by-word
@@ -67,9 +68,15 @@ export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export PATH="$XDG_DATA_HOME/cargo/bin:$PATH"
 
 # odin
-export PATH="/opt/Odin:$PATH"
-export ODIN_ROOT="/opt/Odin"
-export LD_LIBRARY_PATH="/opt/Odin/vendor/raylib/linux:$LD_LIBRARY_PATH"
+# export PATH="/opt/Odin:$PATH"
+# export ODIN_ROOT="/opt/Odin"
+# export LD_LIBRARY_PATH="/opt/Odin/vendor/raylib/linux:$LD_LIBRARY_PATH"
+
+# for use with arch's odin package 
+# WARN: also need to have raylib installed and 
+#   `sudo ln -sf /usr/lib/libraylib.so /usr/lib/odin/vendor/raylib/linux/libraylib.so.600`
+#   `sudo ln -sf /usr/lib/libraylib.a /usr/lib/odin/vendor/raylib/linux/libraylib.a`
+export ODIN_ROOT="/usr/lib/odin"
 
 # golang
 export PATH="$HOME/.local/bin:$PATH"
