@@ -1,5 +1,4 @@
 #!/bin/bash
-
 sleep 1
 
 export XDG_CURRENT_DESKTOP=Hyprland
@@ -14,6 +13,6 @@ killall -q xdg-desktop-portal-gtk
 killall -q xdg-desktop-portal-gnome
 killall -q xdg-desktop-portal
 
-/usr/libexec/xdg-desktop-portal-hyprland &
+/usr/lib/xdg-desktop-portal-hyprland &
 sleep 2
-/usr/libexec/xdg-desktop-portal &
+/usr/lib/xdg-desktop-portal &
