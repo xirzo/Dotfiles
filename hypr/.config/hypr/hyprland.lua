@@ -305,6 +305,15 @@ hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + K",    hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + J",  hl.dsp.focus({ direction = "down" }))
 
+-- VPN
+hl.bind(mainMod .. " + ALT + N", function ()
+    hl.exec_cmd("sudo awg-quick up awg0 && notify-send 'VPN Status' 'Connected to awg0' || notify-send -u critical 'VPN Status' 'Failed to connect'")
+end)
+
+hl.bind(mainMod .. " + SHIFT + N", function ()
+    hl.exec_cmd("sudo awg-quick down awg0 && notify-send 'VPN Status' 'Disconnected from awg0' || notify-send -u critical 'VPN Status' 'Failed to disconnect'")
+end)
+
 -- Resize windows
 local resizeUnit = 20
 hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.resize({ x = resizeUnit, y = 0, relative=true }), { repeating = true })
