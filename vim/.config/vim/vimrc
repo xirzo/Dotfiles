@@ -19,6 +19,7 @@ Plug 'ap/vim-css-color'
 Plug 'markonm/traces.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'catppuccin/vim', { 'as': 'catppuccin', 'branch': 'main' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 call plug#end()
 
 syntax enable
