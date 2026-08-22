@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+FAKE_HOME="$HOME/.local/share/steam-home"
+mkdir -p "$FAKE_HOME"
+
+REAL_UID=$(id -u)
+export HOME="$FAKE_HOME"
+export XDG_DATA_HOME="$FAKE_HOME/.local/share"
+export XDG_CONFIG_HOME="$FAKE_HOME/.config"
+export XDG_CACHE_HOME="$FAKE_HOME/.cache"
+export XDG_STATE_HOME="$FAKE_HOME/.local/state"
+export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/run/user/$REAL_UID}"
+export DBUS_SESSION_BUS_ADDRESS="${DBUS_SESSION_BUS_ADDRESS:-unix:path=$XDG_RUNTIME_DIR/bus}"
+
+rm -rf "$FAKE_HOME/.local/share/Steam/config/htmlcache" /tmp/steam* /tmp/dumps 2>/dev/null || true
+
+exec sudo -E /usr/bin/setpriv --reuid="$USER" --regid=novpn --groups=novpn -- /usr/bin/steam -pipewire "$@"
+
+# WORKED
+# exec sudo -E /usr/local/bin/phy-ns /usr/bin/steam -pipewire "$@"
