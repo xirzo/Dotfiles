@@ -291,6 +291,7 @@ hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2
 hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + SHIFT + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"))
+hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher /fs"))
 -- hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + E", hl.dsp.layout("togglesplit"))    -- dwindle only
 
