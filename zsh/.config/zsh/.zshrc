@@ -84,5 +84,7 @@ export PATH="/usr/local/go/bin:$PATH"
 export PATH="$(go env GOPATH)/bin:$PATH"
 
 # dotnet
-export DOTNET_ROOT="$XDG_DATA_HOME/dotnet"
-export PATH="$XDG_DATA_HOME/dotnet:$PATH"
+export DOTNET_ROOT="/usr/share/dotnet"
+export PATH="$DOTNET_ROOT:$PATH"
+export PATH="$HOME/.dotnet/tools:$PATH"
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
