@@ -19,7 +19,7 @@ sudo dns install stow
 
 then *stow* the directories of configurations you want to use:
 
-> [!WARN]
+> [!WARNING]
 > After doing `stow steam`, do an `update-desktop-database ~/.local/share/applications`
 
 ```sh
