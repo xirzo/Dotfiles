@@ -1,3 +1,6 @@
 [submodule "emacs/.config/emacs/site-lisp/emacs-application-framework"]
 	path = emacs/.config/emacs/site-lisp/emacs-application-framework
 	url = https://github.com/emacs-eaf/emacs-application-framework
+[submodule "vim"]
+	path = vim
+	url = https://github.com/xirzo/VimConfig.git

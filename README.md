@@ -8,16 +8,29 @@
 <img width="1920" height="1080" alt="pic" src="https://github.com/user-attachments/assets/879efdd2-4777-4291-8470-11b93b6625d3" />
 </p>
 
-
 ## Installation
+
+Clone with submodules:
+
+```sh
+git clone --recursive https://github.com/xirzo/Dotfiles.git
+```
 
 Install *GNU stow*
 
+### Fedora
+
 ```sh
-sudo dns install stow
+sudo dnf install stow
 ```
 
-then *stow* the directories of configurations you want to use:
+### Arch
+
+```sh
+sudo pacman -S stow
+```
+
+Then *stow* the directories of configurations you want to use:
 
 > [!WARNING]
 > After doing `stow steam`, do an `update-desktop-database ~/.local/share/applications`
@@ -26,7 +39,13 @@ then *stow* the directories of configurations you want to use:
 stow <DIR_NAME>
 ```
 
-if you wish to unlink the configuration, use:
+As *vim* is a _gitsubmodule_ is should be used as so:
+
+```sh
+stow -d "$PWD/vim" -t "$HOME" vim
+```
+
+If you wish to unlink the configuration, use:
 
 ```sh
 stow -D <DIR_NAME>
@@ -34,14 +53,4 @@ stow -D <DIR_NAME>
 
 ## XDG oh-my-zsh
 
-dotfiles use XDG paths, so one is set for *oh-my-zsh*, do `stow zsh` before installing it!
-
-### Setup Scripts
-
-vim building and installation
-
-```sh
-./scripts/build_and_install_vim.sh
-```
-
-
+Dotfiles use XDG paths, so one is set for *oh-my-zsh*, do `stow zsh` before installing it!
