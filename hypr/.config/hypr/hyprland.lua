@@ -342,6 +342,9 @@ hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({ mode = "fullscreen
 
 -- Screenshot a monitor
 hl.bind("PRINT", hl.dsp.exec_cmd(ipc .. "screenshot-fullscreen pick"))
+
+hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd([[grim -g "$(slurp)" - | swappy -f -]]))
+
 -- Screenshot a region
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd(ipc .. "screenshot-region"))
 
