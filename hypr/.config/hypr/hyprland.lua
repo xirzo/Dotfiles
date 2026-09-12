@@ -118,7 +118,32 @@ hl.config({
         -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
         allow_tearing = false,
 
-        layout = "dwindle",
+        -- layout = "dwindle",
+        layout = "scrolling",
+    },
+
+    scrolling = {
+        -- Default width for a new column (0.1 to 1.0 fraction of the screen)
+        column_width = 0.5,
+
+        -- If only 1 column exists on the workspace, make it take the full screen
+        fullscreen_on_one_column = true,
+
+        -- Direction new windows appear and tape scrolls: "right", "left", "up", or "down"
+        direction = "right",
+
+        -- Method used when focusing an off-screen column: 0 = center, 1 = fit
+        focus_fit_method = 1,
+
+        -- Whether the view automatically scrolls to follow focus
+        follow_focus = true,
+
+        -- Preconfigured widths cycled via `colresize +conf` / `colresize -conf`
+        explicit_column_widths = "0.333, 0.5, 0.667, 1.0",
+
+        -- Wrap around when focusing or swapping past the tape ends
+        wrap_focus = true,
+        wrap_swapcol = true,
     },
 
     decoration = {
@@ -252,7 +277,7 @@ hl.config({
 
         follow_mouse = 1,
 
-        sensitivity = -1.0, -- -1.0 - 1.0, 0 means no modification.
+        sensitivity = -0.25, -- -1.0 - 1.0, 0 means no modification.
 
         touchpad = {
             natural_scroll = false,
@@ -280,50 +305,112 @@ hl.gesture({
 
 local mainMod = "SUPER"
 
--- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
-hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
--- Kill the process owning the window with a SIGKILL
+-- Applications & Windows
+hl.bind(mainMod .. " + Return",    hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.window.kill())
--- Send a graceful request to close the window
-local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
--- closeWindowBind:set_enabled(false)
-hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+hl.bind(mainMod .. " + Q",         hl.dsp.window.close())
 hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + SHIFT + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"))
-hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher /fs"))
--- hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
-hl.bind(mainMod .. " + E", hl.dsp.layout("togglesplit"))    -- dwindle only
+hl.bind(mainMod .. " + D",         hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"))
+hl.bind(mainMod .. " + C",         hl.dsp.exec_cmd(ipc .. "panel-toggle launcher /fs"))
 
--- Move focus with mainMod + arrow keys
-hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
+-- Session Exit (Fixed dispatcher name)
+hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"))
+
+-- SCROLLING TAPE CONTROLS --
+
+-- 1. Focus Navigation
+-- Move focus along the tape (Arrows)
+hl.bind(mainMod .. " + left",  hl.dsp.layout("focus l"))
+hl.bind(mainMod .. " + right", hl.dsp.layout("focus r"))
 hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
 
-hl.bind(mainMod .. " + H",  hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + K",    hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + J",  hl.dsp.focus({ direction = "down" }))
+-- Move focus along the tape (Vim keys)
+hl.bind(mainMod .. " + H", hl.dsp.layout("focus l"))
+hl.bind(mainMod .. " + L", hl.dsp.layout("focus r"))
+hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up" }))
+hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
 
--- VPN
+-- 2. Column Management (Swap columns left/right along the strip)
+hl.bind(mainMod .. " + SHIFT + left",  hl.dsp.layout("swapcol l"))
+hl.bind(mainMod .. " + SHIFT + right", hl.dsp.layout("swapcol r"))
+hl.bind(mainMod .. " + SHIFT + H",     hl.dsp.layout("swapcol l"))
+hl.bind(mainMod .. " + SHIFT + L",     hl.dsp.layout("swapcol r"))
+
+-- Swap columns horizontally along the tape
+hl.bind(mainMod .. " + SHIFT + left",  hl.dsp.layout("swapcol l"))
+hl.bind(mainMod .. " + SHIFT + right", hl.dsp.layout("swapcol r"))
+hl.bind(mainMod .. " + SHIFT + H",     hl.dsp.layout("swapcol l"))
+hl.bind(mainMod .. " + SHIFT + L",     hl.dsp.layout("swapcol r"))
+
+-- 3. Width Controls
+-- Cycle column width presets (uses explicit_column_widths from your config)
+hl.bind(mainMod .. " + R",         hl.dsp.layout("colresize +conf"))
+hl.bind(mainMod .. " + SHIFT + R", hl.dsp.layout("colresize -conf"))
+
+-- Center or snap active column into viewport
+hl.bind(mainMod .. " + Backspace", hl.dsp.layout("fit_into_view"))
+
+-- 4. Stacking: Consume into column / Promote to independent column
+hl.bind(mainMod .. " + comma",  hl.dsp.layout("consume"))
+hl.bind(mainMod .. " + period", hl.dsp.layout("promote"))
+
+-- WORKSPACES & WINDOWS    --
+
+for i = 1, 10 do
+    local key = i % 10
+
+    -- Switch workspace (Dispatcher: workspace)
+    hl.bind(mainMod .. " + " .. key, function()
+        hl.exec_cmd("hyprctl dispatch workspace " .. i)
+    end)
+
+    -- Move window to workspace (Dispatcher: movetoworkspace)
+    hl.bind(mainMod .. " + SHIFT + " .. key, function()
+        hl.exec_cmd("hyprctl dispatch movetoworkspace " .. i)
+    end)
+
+    -- Move window silently (Dispatcher: movetoworkspacesilent)
+    hl.bind(mainMod .. " + CTRL + " .. key, function()
+        hl.exec_cmd("hyprctl dispatch movetoworkspacesilent " .. i)
+    end)
+end
+
+-- Standard Fullscreen (Takes entire screen)
+hl.bind(mainMod .. " + F", function()
+    hl.exec_cmd("hyprctl dispatch fullscreen 0")
+end)
+
+-- Maximized / Keep Margins (Client occupies the full workspace view)
+hl.bind(mainMod .. " + SHIFT + F", function()
+    hl.exec_cmd("hyprctl dispatch fullscreen 1")
+end)
+
+-- Workspace mouse scroll
+hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
+
+-- Mouse drag/resize
+hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
+hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+
+-- MEDIA & UTILITIES       --
+
+-- WireGuard VPN (Fixed single instance with error fallback)
 hl.bind(mainMod .. " + ALT + N", function ()
-    hl.exec_cmd("sudo awg-quick up awg0 && notify-send 'VPN Status' 'Connected to awg0' || notify-send -u critical 'VPN Status' 'Failed to connect'")
+hl.exec_cmd("sudo awg-quick up awg0 && notify-send 'VPN Status' 'Connected to awg0' || notify-send -u critical 'VPN Status' 'Failed to connect'")
 end)
 
 hl.bind(mainMod .. " + SHIFT + N", function ()
-    hl.exec_cmd("sudo awg-quick down awg0 && notify-send 'VPN Status' 'Disconnected from awg0' || notify-send -u critical 'VPN Status' 'Failed to disconnect'")
+hl.exec_cmd("sudo awg-quick down awg0 && notify-send 'VPN Status' 'Disconnected from awg0' || notify-send -u critical 'VPN Status' 'Failed to disconnect'")
 end)
 
--- Resize windows
-local resizeUnit = 20
-hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.resize({ x = resizeUnit, y = 0, relative=true }), { repeating = true })
-hl.bind(mainMod .. " + SHIFT + left", hl.dsp.window.resize({ x = -resizeUnit, y = 0, relative=true }), { repeating = true })
-hl.bind(mainMod .. " + SHIFT + up", hl.dsp.window.resize({ x = 0, y = -resizeUnit, relative=true }), { repeating = true })
-hl.bind(mainMod .. " + SHIFT + down", hl.dsp.window.resize({ x = 0, y = resizeUnit, relative=true }), { repeating = true })
-
-hl.bind("ALT + F7", hl.dsp.exec_cmd("obs-cmd recording toggle"))
-
+-- Screenshots & Recording
+hl.bind("PRINT",                   hl.dsp.exec_cmd(ipc .. "screenshot-fullscreen pick"))
+hl.bind(mainMod .. " + PRINT",     hl.dsp.exec_cmd([[grim -g "$(slurp)" - | swappy -f -]]))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd(ipc .. "screenshot-region"))
+hl.bind("ALT + F7",                hl.dsp.exec_cmd("obs-cmd recording toggle"))
 for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0
     -- Switch workspaces with mainMod + [0-9]
@@ -367,6 +454,10 @@ hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_S
 hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),   { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"),                  { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"),                  { locked = true, repeating = true })
+
+hl.bind("XF86KbdBrightnessUp", hl.dsp.exec_cmd("brightnessctl --device='smc::kbd_backlight' set 10%+"), {locked = true, repeating = true })
+hl.bind("XF86KbdBrightnessDown",hl.dsp.exec_cmd("brightnessctl --device='smc::kbd_backlight' set 10%-"), {locked = true, repeating = true})
+
 
 -- Requires playerctl
 hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = true })
@@ -433,5 +524,7 @@ hl.window_rule({
 
 -- getting class: 'hyprctl clients | grep Window'
 
+
 -- For Noctalia Color templates
 require("noctalia").apply_theme()
+
